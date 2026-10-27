@@ -781,6 +781,7 @@ dialog.sheet[open]{animation:sheetIn .38s cubic-bezier(.2,.7,.2,1)}
   <div class="sheet-top">
     <span class="eyebrow" id="cv-sheet-title">Iryna Yung — CV · 2 pages</span>
     <div class="sheet-nav">
+      <a class="btn btn-ghost btn-sm" id="cv-open" href="cv/Iryna-Yung-CV.pdf" target="_blank" rel="noopener" hidden><svg aria-hidden="true"><use href="#i-ext"/></svg>Open PDF</a>
       <button class="btn btn-primary btn-sm js-cv" type="button"><svg aria-hidden="true"><use href="#i-down"/></svg>Download PDF</button>
       <button class="icon-btn" type="button" id="cv-close" aria-label="Close CV"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
     </div>
@@ -922,7 +923,8 @@ if(matchMedia('(hover: hover) and (pointer: fine)').matches&&!matchMedia('(prefe
   });
 }
 
-/* CV viewer */
+/* CV viewer — on a normal website (not inside Claude) a plain PDF link works too */
+if(!(window.claude&&window.claude.use)){ const o=document.getElementById('cv-open'); if(o) o.hidden=false; }
 const cvSheet=document.getElementById('cv-sheet'); let cvOpener=null;
 document.getElementById('cv-view').addEventListener('click',e=>{ cvOpener=e.currentTarget; if(typeof cvSheet.showModal==='function') cvSheet.showModal(); else cvSheet.setAttribute('open',''); });
 document.getElementById('cv-close').addEventListener('click',()=>cvSheet.close());
@@ -945,7 +947,7 @@ const status=document.getElementById('cv-status');
 let dl=null;
 try{ if(window.claude&&window.claude.use) window.claude.use('downloads').then(d=>{dl=d;}).catch(()=>{}); }catch(e){}
 document.querySelectorAll('.js-cv').forEach(btn=>btn.addEventListener('click',async()=>{
-  if(!dl){ document.getElementById('cv').scrollIntoView({behavior:'smooth'}); status.textContent='Saving isn’t available in this view. Use “View CV” to read it here.'; return; }
+  if(!dl){ const a=document.createElement('a'); a.href='cv/Iryna-Yung-CV.pdf'; a.download='Iryna-Yung-CV.pdf'; document.body.appendChild(a); a.click(); a.remove(); status.textContent='Downloading Iryna-Yung-CV.pdf'; return; }
   btn.setAttribute('aria-busy','true'); status.textContent='Preparing the PDF…';
   try{
     const blob=await fetch('cv/Iryna-Yung-CV.pdf').then(r=>{ if(!r.ok) throw new Error('fetch'); return r.blob(); });
