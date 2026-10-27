@@ -1,0 +1,962 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Iryna Yung Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Iryna Yung — UX/UI and Product Designer. 10+ years in IT, 50+ designed products. B2B platforms, dashboards and mobile apps.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one calm reading column (max 1200px) on a graphite velvet ground; glass is reserved for
+   navigation, strength tiles, tags and overlays. Work is grouped by kind, each project opens in a sheet. */
+:root{
+  /* Color — graphite velvet, one cool accent */
+  --ground:#131315;          /* page ground */
+  --ground-2:#1a1a1e;        /* raised surface */
+  --ground-3:#232329;        /* image wells, inputs */
+  --ink:#f3f2ee;             /* primary text  ~16:1 */
+  --ink-2:#c6c5c0;           /* secondary text ~10:1 */
+  --ink-3:#9a9994;           /* captions ~6.3:1 */
+  --accent:#b9c5ff;          /* periwinkle — links, focus, key numbers */
+  --accent-ink:#11131c;      /* text on accent */
+  --line:rgba(255,255,255,.10);
+  --line-strong:rgba(255,255,255,.18);
+  --glass:rgba(255,255,255,.055);
+  --glass-hi:rgba(255,255,255,.09);
+  --glow-cool:rgba(92,108,210,.20);
+  --glow-warm:rgba(196,150,110,.10);
+  --shadow:0 24px 60px -24px rgba(0,0,0,.65);
+  /* Type */
+  --display:"Jost","Futura","Century Gothic","Avenir Next",system-ui,sans-serif;
+  --body:"Instrument Sans","Helvetica Neue",Arial,system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --fs-xs:.78rem; --fs-sm:.9rem; --fs-md:1.0625rem; --fs-lg:1.25rem; --fs-xl:clamp(1.6rem,1.2rem + 1.4vw,2.25rem);
+  --fs-2xl:clamp(2.2rem,1.5rem + 2.6vw,3.4rem); --fs-hero:clamp(3.1rem,1.6rem + 6vw,6.6rem);
+  /* Space & shape */
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px; --s8:72px; --s9:112px;
+  --r-sm:10px; --r-md:16px; --r-lg:24px; --r-pill:999px;
+  --wrap:1200px;
+  --blur:saturate(140%) blur(18px);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{
+  background:var(--ground);color:var(--ink);font-family:var(--body);font-size:var(--fs-md);line-height:1.6;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;min-height:100vh;
+  background-image:
+    radial-gradient(1100px 700px at 8% -10%,var(--glow-cool),transparent 60%),
+    radial-gradient(900px 600px at 105% 18%,var(--glow-warm),transparent 60%),
+    radial-gradient(800px 900px at 50% 120%,rgba(92,108,210,.10),transparent 60%);
+  background-attachment:fixed;
+}
+/* velvet grain */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.06;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ground)}
+main,header,footer{position:relative;z-index:1}
+a{color:var(--accent);text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3,h4{font-family:var(--display);font-weight:500;letter-spacing:-.01em;line-height:1.1;margin:0;text-wrap:balance}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:var(--fs-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.skip{position:absolute;left:-9999px;top:8px;z-index:100;background:var(--accent);color:var(--accent-ink);padding:8px 14px;border-radius:8px}
+.skip:focus{left:16px}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:var(--r-pill);
+  font:500 var(--fs-sm)/1 var(--body);letter-spacing:.01em;text-decoration:none;cursor:pointer;border:1px solid transparent;
+  transition:background .2s,border-color .2s,transform .2s,color .2s;white-space:nowrap}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-primary{background:var(--ink);color:var(--ground)}
+.btn-primary:hover{background:#fff;transform:translateY(-1px)}
+.btn-glass{background:var(--glass);color:var(--ink);border-color:var(--line-strong);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur)}
+.btn-glass:hover{background:var(--glass-hi);border-color:rgba(255,255,255,.3)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-strong)}
+.btn-ghost:hover{border-color:var(--ink-2)}
+.btn-sm{min-height:40px;padding:0 16px}
+.btn[aria-busy="true"]{opacity:.7;pointer-events:none}
+
+/* ---------- Nav ---------- */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(19,19,21,.66);border-bottom:1px solid var(--line);
+  backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur)}
+.nav-bar{display:flex;align-items:center;gap:var(--s4);min-height:68px;padding-block:10px}
+.brand{display:flex;align-items:baseline;gap:10px;color:var(--ink);text-decoration:none;font-family:var(--display);font-weight:500;font-size:1.15rem;white-space:nowrap}
+.brand small{font-family:var(--body);font-size:var(--fs-xs);color:var(--ink-3);font-weight:400}
+.nav-links{display:flex;gap:2px;margin-left:auto;list-style:none;padding:0;margin-block:0}
+.nav-links a{display:block;padding:10px 14px;border-radius:var(--r-pill);color:var(--ink-2);text-decoration:none;font-size:var(--fs-sm)}
+.nav-links a:hover{color:var(--ink);background:var(--glass)}
+.nav-links a[aria-current="true"]{color:var(--ink);background:var(--glass-hi)}
+@media (max-width:860px){
+  .brand small{display:none}
+  .nav-links{order:3;width:100%;margin:0;overflow-x:auto;scrollbar-width:none;justify-content:space-between}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-bar{flex-wrap:wrap;row-gap:4px;padding-block:10px 4px}
+  .nav-cta{margin-left:auto}
+  .nav-links a{padding:8px 10px}
+}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;padding-block:var(--s8) var(--s7);overflow:hidden}
+.hero-type{position:absolute;inset:0;pointer-events:none;font-family:var(--display);font-weight:500;line-height:.8;color:transparent;
+  -webkit-text-stroke:1px rgba(255,255,255,.07);font-size:clamp(14rem,30vw,30rem);letter-spacing:-.04em;user-select:none}
+.hero-type span:first-child{position:absolute;right:-2vw;top:-4%}
+.hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:var(--s5) var(--s8);align-items:end}
+.hero-main{position:relative;min-width:0}
+.hero-side{position:relative;min-width:0;padding-bottom:6px}
+.hero-side .lede{margin-top:0}
+.hero-side .hero-actions{margin-top:var(--s5)}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr;gap:var(--s5)}}
+.hero-id{display:flex;align-items:center;gap:var(--s4);margin-bottom:var(--s5)}
+.avatar-photo{width:96px;height:96px;border-radius:50%;object-fit:cover;filter:grayscale(1) contrast(1.05);
+  border:1px solid var(--line-strong);box-shadow:0 0 0 6px rgba(255,255,255,.04),var(--shadow);flex:none}
+.hero h1{font-size:var(--fs-hero);font-weight:500;letter-spacing:-.03em;line-height:.95}
+.hero .role{font-family:var(--display);font-size:var(--fs-xl);color:var(--ink-2);margin-top:var(--s3);font-weight:400}
+.hero .lede{font-size:clamp(1.08rem,1rem + .3vw,1.25rem);color:var(--ink-2);max-width:56ch;margin-top:var(--s5);line-height:1.55}
+.hero .lede strong{color:var(--ink);font-weight:500}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s4) var(--s6);margin-top:var(--s6)}
+.facts-line{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s5);list-style:none;margin:0;padding:0;font-size:var(--fs-sm);color:var(--ink-3)}
+.facts-line li{display:flex;align-items:center;gap:8px}
+.facts-line svg{width:16px;height:16px;opacity:.75;flex:none}
+
+/* strengths */
+.strengths{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s3);margin-top:var(--s8);padding:0;list-style:none}
+.strength{padding:var(--s5);border-radius:var(--r-md);background:var(--glass);border:1px solid var(--line);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);display:grid;gap:6px;align-content:start}
+.strength .k{font-family:var(--display);font-size:1.6rem;line-height:1;color:var(--accent);font-weight:500;font-variant-numeric:tabular-nums}
+.strength h3{font-size:1.06rem;font-family:var(--body);font-weight:600;letter-spacing:0}
+.strength p{font-size:var(--fs-sm);color:var(--ink-2);line-height:1.5}
+.strength-wide{grid-column:1/-1;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:var(--s4) 30px}
+@media (max-width:900px){.strengths{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.strengths{grid-template-columns:1fr}.hero{padding-block:var(--s6) var(--s6)}.avatar-photo{width:72px;height:72px}}
+
+/* ---------- Sections ---------- */
+section.block{padding-block:var(--s9) 0}
+#recommendations .section-head{margin-bottom:var(--s5)}
+.section-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--s5);align-items:end;margin-bottom:var(--s7);padding-top:var(--s5);border-top:1px solid var(--line)}
+.section-head h2{font-size:var(--fs-2xl);margin-top:var(--s3)}
+.section-head p{color:var(--ink-2);max-width:46ch;font-size:var(--fs-sm)}
+@media (max-width:720px){.section-head{grid-template-columns:1fr}}
+.group{margin-top:var(--s8)}
+.group:first-of-type{margin-top:0}
+.group-head{display:flex;align-items:baseline;justify-content:space-between;gap:var(--s4);margin-bottom:var(--s5);flex-wrap:wrap}
+.group-head h3{font-size:var(--fs-xl)}
+.group-head p{color:var(--ink-3);font-size:var(--fs-sm)}
+
+/* ---------- Project cards ---------- */
+.cards{display:grid;gap:var(--s5)}
+.cards.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.cards.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:860px){.cards.two,.cards.three{grid-template-columns:1fr}}
+@media (min-width:600px) and (max-width:860px){.cards.three{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.card{position:relative;display:grid;grid-template-rows:auto 1fr;border-radius:var(--r-lg);background:var(--ground-2);border:1px solid var(--line);overflow:hidden;transition:border-color .25s,transform .25s}
+.card:hover{border-color:var(--line-strong)}
+.card-media{position:relative;aspect-ratio:16/10;background:var(--tint,#2a2d3a);overflow:hidden}
+.card-media{--px:0;--py:0}
+.card-media img{width:100%;height:100%;object-fit:cover;object-position:left top;transition:transform .5s cubic-bezier(.2,.7,.2,1);
+  transform:translate3d(calc(var(--px) * 10px),calc(var(--py) * 8px),0)}
+.card-media.framed{display:grid;place-items:center;padding:clamp(18px,6%,44px)}
+.card-media.framed img{object-fit:contain;object-position:center;border-radius:10px;filter:drop-shadow(0 18px 30px rgba(0,0,0,.35))}
+.card-media.thumb img{object-fit:cover;object-position:center;transform:scale(1.05) translate3d(calc(var(--px) * 10px),calc(var(--py) * 8px),0)}
+.card-media.bleed{overflow:hidden}
+.card-media.bleed img{position:absolute;left:7%;top:8%;width:98%;height:auto;max-width:none;object-fit:initial;border-radius:12px 0 0 0;
+  box-shadow:-18px -10px 50px -20px rgba(0,0,0,.45);transform-origin:left top}
+.card-media.bleed.phones img{left:9%;top:7%;width:94%;border-radius:0;box-shadow:none;filter:drop-shadow(0 20px 40px rgba(0,0,0,.45))}
+.card-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{padding:4px 9px;border-radius:6px;font:500 .72rem/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);background:var(--ground-3)}
+.card-body{display:grid;gap:var(--s3);padding:var(--s5);align-content:start}
+.card-body h4{font-size:1.5rem}
+.card-body .purpose{color:var(--ink-2);font-size:var(--fs-sm);line-height:1.55}
+.facts{display:grid;gap:6px;margin:4px 0 0;font-size:var(--fs-sm)}
+.facts div{display:grid;grid-template-columns:84px minmax(0,1fr);gap:var(--s3)}
+.facts dt{color:var(--ink-3);font-size:var(--fs-xs);font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase;padding-top:3px}
+.facts dd{margin:0;color:var(--ink)}
+.card-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--s3);margin-top:var(--s2)}
+.card-foot .more{font-size:var(--fs-xs);color:var(--ink-3)}
+/* featured */
+.card.featured{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);grid-template-rows:auto}
+.card.featured .card-media{aspect-ratio:auto;min-height:420px}
+.card.featured .card-body{padding:var(--s6)}
+.card.featured h4{font-size:var(--fs-xl)}
+.outcome{margin-top:var(--s2);padding:var(--s4);border-radius:var(--r-md);background:var(--glass);border:1px solid var(--line)}
+.outcome .eyebrow{display:block;margin-bottom:6px;color:var(--accent)}
+.outcome p{font-size:var(--fs-sm);color:var(--ink)}
+@media (max-width:960px){.card.featured{grid-template-columns:1fr}.card.featured .card-media{aspect-ratio:16/10}.card.featured .card-body{padding:var(--s5)}}
+.card.compact .card-body h4{font-size:1.25rem}
+.card.compact .card-media{aspect-ratio:16/9}
+.card.compact .card-media img{object-position:center}
+
+/* ---------- CV viewer ---------- */
+dialog.cv-sheet{width:min(860px,100%)}
+.cv-pages{display:grid;gap:var(--s5);padding:var(--s6) max(20px,env(safe-area-inset-right,0px)) calc(var(--s8) + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px));justify-items:center}
+.cv-pages img{width:100%;max-width:760px;height:auto;background:#fff;border-radius:4px;box-shadow:0 20px 50px -20px rgba(0,0,0,.7)}
+/* ---------- Project sheet (dialog) ---------- */
+dialog.sheet{width:min(1080px,100%);max-width:100%;max-height:100%;height:100%;margin:0 0 0 auto;padding:0;border:0;color:var(--ink);
+  background:rgba(20,20,23,.92);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border-left:1px solid var(--line-strong);box-shadow:-30px 0 80px -30px rgba(0,0,0,.8)}
+dialog.sheet::backdrop{background:rgba(6,6,8,.6);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+dialog.sheet[open]{animation:sheetIn .38s cubic-bezier(.2,.7,.2,1)}
+@keyframes sheetIn{from{transform:translateX(40px);opacity:.4}to{transform:none;opacity:1}}
+.sheet-top{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:var(--s4);padding:calc(14px + env(safe-area-inset-top,0px)) max(20px,env(safe-area-inset-right,0px)) 14px 28px;
+  background:rgba(20,20,23,.85);border-bottom:1px solid var(--line);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur)}
+.sheet-top .eyebrow{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sheet-nav{display:flex;gap:8px;flex:none}
+.icon-btn{width:44px;height:44px;display:inline-grid;place-items:center;border-radius:50%;background:var(--glass);border:1px solid var(--line-strong);color:var(--ink);cursor:pointer}
+.icon-btn:hover{background:var(--glass-hi)}
+.icon-btn svg{width:18px;height:18px}
+.sheet-body{padding:var(--s6) 28px calc(var(--s8) + env(safe-area-inset-bottom,0px));display:grid;gap:var(--s7)}
+@media (max-width:600px){.sheet-body{padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}.sheet-top{padding-left:16px}}
+.sheet h2{font-size:var(--fs-2xl)}
+.sheet .sub{color:var(--ink-2);margin-top:var(--s3);font-family:var(--display);font-size:var(--fs-lg)}
+.sheet-intro{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:var(--s6);align-items:start}
+@media (max-width:820px){.sheet-intro{grid-template-columns:1fr}}
+.sheet-intro .overview p{color:var(--ink-2);max-width:62ch}
+.sheet-intro .overview p+p{margin-top:var(--s3)}
+.factbox{padding:var(--s5);border-radius:var(--r-md);background:var(--glass);border:1px solid var(--line)}
+.factbox .facts div{grid-template-columns:96px minmax(0,1fr)}
+.h-sec{font-size:var(--fs-lg);margin-bottom:var(--s4);font-family:var(--display)}
+.did{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.did li{padding:7px 12px;border-radius:var(--r-pill);font-size:var(--fs-xs);color:var(--ink-2);background:var(--ground-3);border:1px solid var(--line)}
+.shot{margin:0;border-radius:var(--r-md);overflow:hidden;border:1px solid var(--line);background:var(--ground-3)}
+.shot img{width:100%;height:auto}
+.shot figcaption{padding:10px 14px;font-size:var(--fs-xs);color:var(--ink-3);border-top:1px solid var(--line)}
+.shots{display:grid;gap:var(--s4)}
+.shots.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:700px){.shots.two{grid-template-columns:1fr}}
+/* process */
+.process{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s3);list-style:none;padding:0;margin:0;counter-reset:step}
+@media (max-width:900px){.process{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.process{grid-template-columns:1fr}}
+.step{padding:var(--s5);border-radius:var(--r-md);background:var(--ground-2);border:1px solid var(--line);display:grid;gap:8px;align-content:start}
+.step .num{font-family:var(--mono);font-size:var(--fs-xs);color:var(--accent);letter-spacing:.08em}
+.step h4{font-size:1.1rem;font-family:var(--body);font-weight:600;letter-spacing:0}
+.step .tagline{font-size:var(--fs-xs);color:var(--ink-3);margin-top:-4px}
+.step ul{margin:4px 0 0;padding-left:18px;font-size:var(--fs-sm);color:var(--ink-2);display:grid;gap:4px}
+.step .note{margin-top:6px;padding-top:10px;border-top:1px solid var(--line);font-size:var(--fs-xs);color:var(--ink-2)}
+.step .note b{display:block;color:var(--ink);font-weight:600;font-size:.8rem;margin-bottom:2px}
+.takeaway{padding:var(--s6);border-radius:var(--r-lg);background:linear-gradient(135deg,rgba(185,197,255,.14),rgba(185,197,255,.03));border:1px solid rgba(185,197,255,.28)}
+.takeaway .eyebrow{color:var(--accent)}
+.takeaway p{font-family:var(--display);font-size:clamp(1.25rem,1.05rem + .7vw,1.7rem);line-height:1.35;margin-top:var(--s3);max-width:52ch}
+.case{display:grid;gap:var(--s5);padding-top:var(--s6);border-top:1px solid var(--line)}
+.case-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s5) var(--s6)}
+@media (max-width:760px){.case-grid{grid-template-columns:1fr}}
+.case-grid h5{font:600 .95rem/1.3 var(--body);margin:0 0 6px}
+.case-grid p,.case-grid li{font-size:var(--fs-sm);color:var(--ink-2)}
+.case-grid ul{margin:6px 0 0;padding-left:18px;display:grid;gap:4px}
+.steps-ol{margin:0;padding-left:22px;display:grid;gap:8px;color:var(--ink-2);font-size:var(--fs-sm);max-width:70ch}
+.steps-ol li::marker{color:var(--accent);font-family:var(--mono);font-size:.8em}
+.note-src{font-size:var(--fs-xs);color:var(--ink-3)}
+
+/* ---------- About ---------- */
+.about-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:var(--s8)}
+@media (max-width:920px){.about-grid{grid-template-columns:1fr;gap:var(--s7)}}
+.approach p{color:var(--ink-2);max-width:60ch}
+.approach p+p{margin-top:var(--s4)}
+.approach .big{font-family:var(--display);font-size:var(--fs-xl);color:var(--ink);line-height:1.3}
+.phases{display:flex;flex-wrap:wrap;gap:8px;margin-top:var(--s5);padding:0;list-style:none}
+.phases li{display:flex;align-items:center;gap:8px;font-size:var(--fs-xs);color:var(--ink-2);padding:7px 12px;border-radius:var(--r-pill);background:var(--glass);border:1px solid var(--line)}
+.phases li b{font-family:var(--mono);color:var(--accent);font-weight:500}
+.timeline{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.timeline li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px var(--s4);padding:var(--s4) 0;border-bottom:1px solid var(--line)}
+.timeline h4{font-size:1.15rem}
+.timeline .dur{font-family:var(--mono);font-size:var(--fs-xs);color:var(--ink-3);white-space:nowrap;padding-top:4px}
+.timeline p{grid-column:1/-1;font-size:var(--fs-sm);color:var(--ink-2);max-width:68ch}
+.timeline .pos{color:var(--ink-3);font-family:var(--body);font-weight:400;font-size:.95rem}
+.about-sub{margin-top:var(--s7)}
+.about-sub h3{font-size:var(--fs-lg);margin-bottom:var(--s4)}
+.pills{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.pills li{padding:7px 12px;border-radius:var(--r-pill);font-size:var(--fs-sm);color:var(--ink);background:var(--glass);border:1px solid var(--line)}
+.two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s6)}
+@media (max-width:600px){.two-col{grid-template-columns:1fr}}
+.plain{list-style:none;margin:0;padding:0;display:grid;gap:var(--s3)}
+.plain li{font-size:var(--fs-sm);color:var(--ink-2)}
+.plain b{display:block;color:var(--ink);font-weight:500}
+
+/* ---------- AI workflow ---------- */
+.flow{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--s4);list-style:none;margin:0;padding:0;counter-reset:stage}
+.flow::before{content:"";position:absolute;left:10%;right:10%;top:27px;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(185,197,255,.55) 12%,rgba(185,197,255,.55) 88%,transparent)}
+.stage{position:relative;display:grid;grid-template-rows:auto 1fr;gap:var(--s3);text-align:center;justify-items:center}
+.stage-dot{position:relative;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font:500 1.05rem/1 var(--mono);color:var(--accent);
+  background:var(--ground);border:1px solid rgba(185,197,255,.45);box-shadow:0 0 0 6px var(--ground),0 0 30px -6px rgba(185,197,255,.45)}
+.stage-card{width:100%;display:grid;gap:10px;padding:var(--s5) var(--s4);border-radius:var(--r-md);background:var(--glass);border:1px solid var(--line);
+  backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);height:100%;display:flex;flex-direction:column;align-items:center;gap:10px}
+.stage-card h3{font-size:1.15rem;font-family:var(--display);font-weight:500}
+.stage-tool{justify-self:center;align-self:center;text-align:center;font:500 .72rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink);background:var(--accent);padding:6px 10px;border-radius:6px}
+.stage-card p{font-size:var(--fs-sm);color:var(--ink-2);line-height:1.5}
+.stage-out{margin-top:auto;width:100%;padding-top:10px;border-top:1px solid var(--line);font-size:var(--fs-xs);color:var(--ink-3)}
+.stage-out b{display:block;color:var(--ink);font-weight:500;font-size:var(--fs-sm);margin-top:2px}
+.flow-note{margin-top:var(--s5);font-size:var(--fs-sm);color:var(--ink-3);max-width:70ch}
+@media (max-width:900px){
+  .flow{grid-template-columns:1fr;gap:var(--s4)}
+  .flow::before{left:27px;right:auto;top:28px;bottom:28px;width:1px;height:auto;background:linear-gradient(180deg,transparent,rgba(185,197,255,.55) 8%,rgba(185,197,255,.55) 92%,transparent)}
+  .stage{grid-template-columns:56px minmax(0,1fr);grid-template-rows:auto;text-align:left;justify-items:start;align-items:start;gap:var(--s4)}
+  .stage-card{align-items:flex-start}
+  .stage-tool{justify-self:start;align-self:flex-start}
+}
+
+/* ---------- Recommendations ---------- */
+.rec-head-tools{display:flex;gap:8px;align-self:end}
+.quotes{display:flex;gap:var(--s4);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:var(--s3);margin:0;list-style:none;padding-left:0;
+  scrollbar-width:thin;scrollbar-color:var(--line-strong) transparent;overscroll-behavior-x:contain}
+.quote{flex:0 0 min(360px,86%);scroll-snap-align:start;margin:0;padding:var(--s5);border-radius:var(--r-lg);background:var(--ground-2);border:1px solid var(--line);
+  display:flex;flex-direction:column;gap:var(--s4)}
+.quote blockquote{margin:0}
+.quote .q-text{font-size:var(--fs-sm);line-height:1.6;color:var(--ink);display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:6;overflow:hidden}
+.quote .q-text p+p{margin-top:var(--s2)}
+.quote.open .q-text{display:block;-webkit-line-clamp:unset}
+.q-more{align-self:flex-start;background:none;border:0;padding:4px 0;color:var(--accent);font:500 var(--fs-xs)/1 var(--body);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.quote figcaption{margin-top:auto;display:grid;grid-template-columns:40px minmax(0,1fr);gap:var(--s3);align-items:center;padding-top:var(--s4);border-top:1px solid var(--line)}
+.avatar{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font:500 .85rem var(--display);color:var(--ink);background:var(--glass-hi)}
+.who b{display:block;font-weight:600;font-size:var(--fs-sm)}
+.who span{display:block;font-size:var(--fs-xs);color:var(--ink-3);line-height:1.45}
+.src-line{margin-top:var(--s3);font-size:var(--fs-sm);color:var(--ink-3)}
+
+/* ---------- CV + Contact ---------- */
+.cv-panel{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:var(--s6);align-items:stretch;padding:var(--s5) var(--s5) 0 var(--s6);border-radius:var(--r-lg);
+  background:linear-gradient(150deg,rgba(255,255,255,.075),rgba(255,255,255,.02));border:1px solid var(--line-strong);overflow:hidden;
+  backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur)}
+.cv-panel .cv-text{padding-bottom:var(--s5);align-self:center}
+.cv-panel h2{font-size:var(--fs-xl);margin-top:var(--s2)}
+.cv-panel p{color:var(--ink-2);margin-top:var(--s2);font-size:var(--fs-sm)}
+.cv-actions{display:flex;flex-wrap:wrap;gap:var(--s3);margin-top:var(--s4)}
+.cv-status{margin-top:var(--s2);font-size:var(--fs-xs);color:var(--ink-2);min-height:1.2em}
+.cv-window{position:relative;height:300px;align-self:end;border-radius:10px 10px 0 0;overflow:hidden;background:#fff;box-shadow:0 -10px 40px -16px rgba(0,0,0,.6)}
+.cv-window img{width:100%;height:auto;display:block}
+.cv-window::after{content:"";position:absolute;inset:auto 0 0;height:56px;background:linear-gradient(transparent,rgba(255,255,255,.95))}
+@media (max-width:700px){.cv-panel{grid-template-columns:1fr;padding:var(--s5) var(--s5) 0}.cv-window{height:220px;width:min(100%,360px);justify-self:center}}
+.contact{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--s6);align-items:end;padding-block:var(--s7) 0}
+@media (max-width:820px){.contact{grid-template-columns:1fr}}
+.contact h2{font-size:var(--fs-2xl)}
+.email-row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s3);margin-top:var(--s5)}
+.email{font-family:var(--display);font-size:clamp(1.3rem,1rem + 1.6vw,2.3rem);color:var(--ink);user-select:all;overflow-wrap:anywhere}
+.contact-list{list-style:none;margin:var(--s5) 0 0;padding:0;display:flex;flex-wrap:wrap;gap:var(--s2)}
+.foot{margin-top:var(--s9);padding-block:var(--s5) calc(var(--s6) + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s3);font-size:var(--fs-xs);color:var(--ink-3)}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:80;padding:10px 16px;border-radius:var(--r-pill);background:var(--ink);color:var(--ground);font-size:var(--fs-sm);box-shadow:var(--shadow)}
+
+/* ===== AI workflow: travelling dot ===== */
+.flow::after{content:"";position:absolute;left:10%;top:23px;width:9px;height:9px;border-radius:50%;background:var(--accent);
+  box-shadow:0 0 0 4px rgba(185,197,255,.18),0 0 18px 4px rgba(185,197,255,.6);opacity:0;pointer-events:none}
+@media (prefers-reduced-motion:no-preference){
+  .flow.armed .stage-dot{border-color:var(--line);box-shadow:0 0 0 6px var(--ground);color:var(--ink-3)}
+  .flow.play::after{animation:flowDot 4.4s cubic-bezier(.45,0,.25,1) .2s both}
+  @keyframes flowDot{0%{left:10%;opacity:0}6%{opacity:1}94%{opacity:1}100%{left:calc(90% - 9px);opacity:0}}
+  .flow.play .stage-dot{animation:dotOn .9s ease both}
+    .flow.play .stage:nth-child(1) .stage-dot{animation-delay:0.35s}
+  .flow.play .stage:nth-child(2) .stage-dot{animation-delay:1.31s}
+  .flow.play .stage:nth-child(3) .stage-dot{animation-delay:2.27s}
+  .flow.play .stage:nth-child(4) .stage-dot{animation-delay:3.24s}
+  .flow.play .stage:nth-child(5) .stage-dot{animation-delay:4.2s}
+  @keyframes dotOn{0%{border-color:var(--line);color:var(--ink-3);box-shadow:0 0 0 6px var(--ground)}50%{box-shadow:0 0 0 6px var(--ground),0 0 44px 4px rgba(185,197,255,.8);transform:scale(1.08)}
+    100%{border-color:rgba(185,197,255,.45);color:var(--accent);box-shadow:0 0 0 6px var(--ground),0 0 30px -6px rgba(185,197,255,.45);transform:none}}
+}
+@media (max-width:900px){
+  .flow::after{left:23px;top:28px}
+  @keyframes flowDot{0%{top:28px;opacity:0}6%{opacity:1}94%{opacity:1}100%{top:calc(100% - 37px);opacity:0}}
+}
+
+/* ===== Glow accents (same language as the AI flow) ===== */
+@media (prefers-reduced-motion:no-preference){
+  .strength-wide .k{display:inline-block;transform-origin:50% 55%;animation:smileRoll 5s cubic-bezier(.45,0,.25,1) infinite}
+  @keyframes smileRoll{0%,58%{transform:none}
+    72%{transform:translateX(22px) rotate(360deg)}
+    80%{transform:translateX(22px) rotate(360deg) scale(1.12,.9)}
+    94%{transform:translateX(0) rotate(720deg)}
+    97%{transform:translateX(0) rotate(720deg) scale(.94,1.06)}
+    100%{transform:translateX(0) rotate(720deg)}}
+}
+@property --edge{syntax:"<angle>";inherits:false;initial-value:0deg}
+/* 5. section title trace */
+.section-head h2{position:relative;padding-bottom:14px}
+.section-head h2::after{content:"";position:absolute;left:0;bottom:0;width:64px;height:2px;border-radius:2px;background:var(--accent);opacity:.45;transform-origin:left center}
+/* 4. featured card edge light */
+.card.featured::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;pointer-events:none;z-index:3;opacity:0;
+  background:conic-gradient(from var(--edge),transparent 0deg 250deg,rgba(185,197,255,.25) 290deg,rgba(220,227,255,1) 330deg,rgba(185,197,255,.25) 350deg,transparent 360deg);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+@media (prefers-reduced-motion:no-preference){
+  .section-head.glow h2::after{animation:trace 2.4s cubic-bezier(.45,0,.25,1) .15s both}
+  @keyframes trace{0%{transform:scaleX(0);opacity:1;box-shadow:0 0 18px 3px rgba(185,197,255,.8)}60%{transform:scaleX(1);opacity:1;box-shadow:0 0 18px 3px rgba(185,197,255,.8)}100%{transform:scaleX(1);opacity:.45;box-shadow:none}}
+  .card.featured.glow::after{animation:edgeRun 4.6s cubic-bezier(.45,0,.25,1) .3s both}
+  @keyframes edgeRun{0%{--edge:-40deg;opacity:0}10%{opacity:1}88%{opacity:1}100%{--edge:330deg;opacity:0}}
+  /* 3. case-study steps light up in order */
+  .process.glow .step{animation:stepGlow 1.8s ease both}
+  .process.glow .step .num{animation:numGlow 1.8s ease both}
+  .process.glow .step:nth-child(1),.process.glow .step:nth-child(1) .num{animation-delay:0.44s}
+  .process.glow .step:nth-child(2),.process.glow .step:nth-child(2) .num{animation-delay:1.22s}
+  .process.glow .step:nth-child(3),.process.glow .step:nth-child(3) .num{animation-delay:2.01s}
+  .process.glow .step:nth-child(4),.process.glow .step:nth-child(4) .num{animation-delay:2.8s}
+  .process.glow .step:nth-child(5),.process.glow .step:nth-child(5) .num{animation-delay:3.59s}
+  .process.glow .step:nth-child(6),.process.glow .step:nth-child(6) .num{animation-delay:4.38s}
+  @keyframes stepGlow{0%{opacity:.4;transform:translateY(8px);border-color:var(--line)}45%{opacity:1;transform:none;border-color:rgba(185,197,255,.55);box-shadow:0 0 34px -8px rgba(185,197,255,.55)}100%{opacity:1;transform:none;border-color:var(--line);box-shadow:none}}
+  @keyframes numGlow{0%,100%{text-shadow:none}45%{text-shadow:0 0 14px rgba(185,197,255,1)}}
+}
+
+/* load motion (starts visible-ish, never stuck hidden) */
+@media (prefers-reduced-motion:no-preference){
+  .rise{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+  .rise.d1{animation-delay:.06s}.rise.d2{animation-delay:.12s}.rise.d3{animation-delay:.18s}.rise.d4{animation-delay:.26s}
+  @keyframes rise{from{opacity:.35;transform:translateY(14px)}to{opacity:1;transform:none}}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M3.5 6.5h17v11h-17z"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="m4 7 8 6 8-6"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-9A1.5 1.5 0 0 0 4 5.5v9A1.5 1.5 0 0 0 5.5 16H8"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M12 21s6.5-6.1 6.5-11.2A6.5 6.5 0 0 0 5.5 9.8C5.5 14.9 12 21 12 21z"/><circle cx="12" cy="10" r="2.3" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-lang" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="M3.5 12h17M12 3.5c2.6 2.4 3.8 5.2 3.8 8.5s-1.2 6.1-3.8 8.5c-2.6-2.4-3.8-5.2-3.8-8.5S9.4 5.9 12 3.5z"/></symbol>
+  <symbol id="i-in" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="currentColor" d="M7.3 10h2.1v6.8H7.3zM8.35 6.9a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4zM11 10h2v.95h.03c.28-.53.97-1.1 2-1.1 2.13 0 2.52 1.4 2.52 3.22v3.73h-2.1v-3.3c0-.79-.01-1.8-1.1-1.8-1.1 0-1.27.86-1.27 1.74v3.36H11z"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M14.5 6 8.5 12l6 6"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="m9.5 6 6 6-6 6"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 12h13m0 0-5-5m5 5-5 5"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M14 5h5v5M19 5l-8 8M17 14v4.5a1.5 1.5 0 0 1-1.5 1.5h-10A1.5 1.5 0 0 1 4 18.5v-10A1.5 1.5 0 0 1 5.5 7H10"/></symbol>
+</svg>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap">
+    <nav class="nav-bar" aria-label="Main">
+      <a class="brand" href="#top">Iryna Yung <small>UX/UI Designer</small></a>
+      <ul class="nav-links">
+        <li><a href="#work">Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#recommendations">Recommendations</a></li>
+        <li><a href="#contact">Contacts</a></li>
+      </ul>
+      <a class="btn btn-primary btn-sm nav-cta" href="#cv"><svg aria-hidden="true"><use href="#i-down"/></svg>CV</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top" aria-labelledby="hero-name">
+    <div class="hero-type" aria-hidden="true"><span>UX</span></div>
+    <div class="wrap">
+      <div class="hero-grid">
+      <div class="hero-main">
+        <div class="hero-id rise">
+          <img class="avatar-photo" src="img/portrait.webp" width="480" height="480" alt="Portrait of Iryna Yung">
+          <p class="eyebrow">Portfolio · 2026</p>
+        </div>
+        <h1 id="hero-name" class="rise d1">Iryna Yung</h1>
+        <p class="role rise d2">UX/UI Designer · Product Designer</p>
+      </div>
+      <div class="hero-side">
+        <p class="lede rise d3">I redesign large legacy products and design new ones from scratch — <strong>B2B platforms, data-heavy dashboards and native mobile apps</strong>. End to end: from requirements gathering and ideation to design, testing, iteration and support.</p>
+        <div class="hero-actions rise d4">
+          <button class="btn btn-primary js-cv" type="button"><svg aria-hidden="true"><use href="#i-down"/></svg>Download CV (PDF)</button>
+          <ul class="facts-line" aria-label="Quick facts">
+            <li><svg aria-hidden="true"><use href="#i-pin"/></svg>Odesa, Ukraine · Remote</li>
+            <li><svg aria-hidden="true"><use href="#i-lang"/></svg>English: Upper-Intermediate</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+
+      <h2 class="eyebrow" style="margin-top:var(--s8);position:relative">What I bring to a team</h2>
+      <ul class="strengths" style="margin-top:var(--s4)">
+        <li class="strength"><span class="k">10+ yrs</span><h3>In the IT industry</h3><p>50+ designed products and projects, B2B and B2C, in large and small teams.</p></li>
+        <li class="strength"><span class="k">100,000+</span><h3>Legacy redesign at scale</h3><p>Core designer on the redesign of a B2B booking platform with an established user base.</p></li>
+        <li class="strength"><span class="k">UI kits</span><h3>Design systems</h3><p>Large design systems and component libraries — including one built from scratch.</p></li>
+        <li class="strength"><span class="k">End to end</span><h3>Requirements → release</h3><p>User stories, flows, prototypes, testing and close collaboration with developers.</p></li>
+        <li class="strength"><span class="k">AI</span><h3>AI-assisted workflow</h3><p>Figma Make, ChatGPT, Claude and Lovable for ideation, exploration and rapid validation.</p></li>
+        <li class="strength"><span class="k">Lead</span><h3>Team leadership &amp; teaching</h3><p>Led a small design and full-stack team; mentored at Hillel IT School; worked as a lecturer at an art-engineering university.</p></li>
+        <li class="strength strength-wide"><span class="k">: )</span><h3>Bring good vibes and silly jokes</h3></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ WORK ============ -->
+  <section class="block" id="work" aria-labelledby="work-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div><p class="eyebrow">Projects &amp; case studies</p><h2 id="work-title">Products I designed</h2></div>
+        <p>Grouped by kind of work. Every card shows the purpose and my role; open a project for decisions, process and screens.</p>
+      </div>
+
+      <div class="group">
+        <div class="group-head"><h3>Client case studies</h3><p>B2B web platforms and an iOS app · DataArt</p></div>
+        <div class="cards">
+          <article class="card featured" style="--tint:#1f56d6">
+            <div class="card-media bleed">
+              <img src="img/booking-thumb.webp" alt="StarTravel hotel search page in a browser window: hero banner, search form and featured property cards" loading="eager">
+              
+            </div>
+            <div class="card-body">
+              <div class="card-tags"><span class="tag">Web</span><span class="tag">Responsive</span><span class="tag">Redesign</span></div>
+              <h4>B2B Booking Platform</h4>
+              <p class="purpose">B2B travel integration platform for agencies and full-cycle booking providers: hotels, transfers, visas, payment.</p>
+              <dl class="facts">
+                <div><dt>Client</dt><dd>EU-based international platform</dd></div>
+                <div><dt>Role</dt><dd>Senior Product Designer, with a Design Lead and another designer</dd></div>
+                <div><dt>Scale</dt><dd>Legacy product, 100,000+ users</dd></div>
+              </dl>
+              <div class="outcome"><span class="eyebrow">Outcome</span><p>Incremental redesign of a complex legacy product; tracked more users completing the search flow and conversion improvements across redesigned flows.</p></div>
+              <div class="card-foot"><button class="btn btn-primary btn-sm" type="button" data-open="booking">Open case study<svg aria-hidden="true"><use href="#i-arrow"/></svg></button><span class="more">2 deep dives · 7 screens</span></div>
+            </div>
+          </article>
+
+          <div class="cards two">
+            <article class="card" style="--tint:#1d2b5c">
+              <div class="card-media bleed">
+                <img src="img/network-thumb.webp" alt="Network dashboard in a browser window: alerts list and a map of network equipment statuses" loading="lazy">
+                
+              </div>
+              <div class="card-body">
+              <div class="card-tags"><span class="tag">Web</span><span class="tag">Data dashboards</span></div>
+                <h4>Network Monitoring System</h4>
+                <p class="purpose">Monitoring network and internet performance across the United States — large volumes of complex data made clear.</p>
+                <dl class="facts">
+                  <div><dt>Client</dt><dd>USA-based internet provider</dd></div>
+                  <div><dt>Role</dt><dd>UX/UI Designer</dd></div>
+                  <div><dt>Key work</dt><dd>Dashboards with charts, statistics and interactive maps, by access level</dd></div>
+                </dl>
+                <div class="card-foot"><button class="btn btn-glass btn-sm" type="button" data-open="network">View project<svg aria-hidden="true"><use href="#i-arrow"/></svg></button><span class="more">4 screens</span></div>
+              </div>
+            </article>
+            <article class="card" style="--tint:#262626">
+              <div class="card-media bleed phones">
+                <img src="img/logistics-thumb.webp" alt="Two dark-mode iPhone screens: NexDrive login and list of delivery requests" loading="lazy">
+                
+              </div>
+              <div class="card-body">
+              <div class="card-tags"><span class="tag">iOS</span><span class="tag">Light &amp; dark</span></div>
+                <h4>Logistics iOS Application</h4>
+                <p class="purpose">Route tracking, check-ins and status updates for managers and warehouse staff, integrated with a legacy system.</p>
+                <dl class="facts">
+                  <div><dt>Client</dt><dd>USA-based logistics company</dd></div>
+                  <div><dt>Role</dt><dd>UX/UI Designer</dd></div>
+                  <div><dt>Outcome</dt><dd>Replaced previously manual status changes and check-ins</dd></div>
+                </dl>
+                <div class="card-foot"><button class="btn btn-glass btn-sm" type="button" data-open="logistics">View project<svg aria-hidden="true"><use href="#i-arrow"/></svg></button><span class="more">4 screens</span></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div class="group">
+        <div class="group-head"><h3>Internal platforms &amp; tools</h3><p>Learning, operations and recognition products</p></div>
+        <div class="cards two">
+          <article class="card compact" style="--tint:#57c7c0">
+            <div class="card-media thumb"><img src="img/thumb-skillguide.webp" alt="Skill Guide learning platform screens on a teal background" loading="lazy"></div>
+            <div class="card-body">
+              <div class="card-tags"><span class="tag">Web</span><span class="tag">Education</span></div>
+              <h4>Skill Guide</h4>
+              <p class="purpose">Internal learning platform helping DataArt employees develop programming skills and learn new frameworks, with a knowledge base organised by topics and learning paths.</p>
+              <div class="card-foot"><button class="btn btn-ghost btn-sm" type="button" data-open="skillguide">View screens<svg aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+            </div>
+          </article>
+          <article class="card compact" style="--tint:#8f5ce8">
+            <div class="card-media thumb"><img src="img/thumb-trainbrain.webp" alt="Train Your Brain quiz platform screens on a purple background" loading="lazy"></div>
+            <div class="card-body">
+              <div class="card-tags"><span class="tag">Web</span><span class="tag">Education</span></div>
+              <h4>Train Your Brain</h4>
+              <p class="purpose">Quiz-based learning service integrated into MindMaster, helping employees assess and reinforce technical knowledge through quizzes and self-evaluation.</p>
+              <div class="card-foot"><button class="btn btn-ghost btn-sm" type="button" data-open="trainbrain">View screens<svg aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+            </div>
+          </article>
+          <article class="card compact" style="--tint:#22a796">
+            <div class="card-media thumb"><img src="img/thumb-cabincrew.webp" alt="Cabin crew tablet screens: login, passenger manifest and boarding" loading="lazy"></div>
+            <div class="card-body">
+              <div class="card-tags"><span class="tag">Tablet</span><span class="tag">Operations</span></div>
+              <h4>Cabin Crew Tablet Platform</h4>
+              <p class="purpose">Tablet platform for airline cabin crew: real-time boarding tracking, seatback-screen sync, self-service and crew-assisted ordering, and order fulfilment tracking.</p>
+              <div class="card-foot"><button class="btn btn-ghost btn-sm" type="button" data-open="cabincrew">View screens<svg aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+            </div>
+          </article>
+          <article class="card compact" style="--tint:#2c43c9">
+            <div class="card-media thumb"><img src="img/thumb-recognition.webp" alt="Badge icons and an iconography guide for an internal recognition system" loading="lazy"></div>
+            <div class="card-body">
+              <div class="card-tags"><span class="tag">Iconography</span><span class="tag">Gamification</span></div>
+              <h4>Recognition &amp; Rewards System</h4>
+              <p class="purpose">Iconography guide that lets any designer create on-brand icons, and a badge-based recognition system aligned with company values.</p>
+              <div class="card-foot"><button class="btn btn-ghost btn-sm" type="button" data-open="recognition">View screens<svg aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="group">
+        <div class="group-head"><h3>Visual design &amp; earlier work</h3><p>Icons, startups, web and mobile</p></div>
+        <div class="cards three">
+          <article class="card compact" style="--tint:#1b1a6a">
+            <div class="card-media thumb"><img src="img/thumb-icons.webp" alt="Icon set in line style on deep blue backgrounds" loading="lazy"></div>
+            <div class="card-body"><h4>Icon design</h4><p class="purpose">Line icon sets from the portfolio.</p>
+              <div class="card-foot"><button class="btn btn-ghost btn-sm" type="button" data-open="icons">View<svg aria-hidden="true"><use href="#i-arrow"/></svg></button></div></div>
+          </article>
+          <article class="card compact" style="--tint:#2d2f36">
+            <div class="card-media thumb"><img src="img/thumb-mobile.webp" alt="Collage of mobile app screens from earlier projects" loading="lazy"></div>
+            <div class="card-body"><h4>Mobile apps</h4><p class="purpose">Screens from earlier mobile projects.</p>
+              <div class="card-foot"><button class="btn btn-ghost btn-sm" type="button" data-open="mobile">View<svg aria-hidden="true"><use href="#i-arrow"/></svg></button></div></div>
+          </article>
+          <article class="card compact" style="--tint:#e9e9ea">
+            <div class="card-media thumb"><img src="img/thumb-web.webp" alt="Collage of website and web app screens from earlier projects" loading="lazy"></div>
+            <div class="card-body"><h4>Web &amp; startups</h4><p class="purpose">Screens from earlier web projects.</p>
+              <div class="card-foot"><button class="btn btn-ghost btn-sm" type="button" data-open="web">View<svg aria-hidden="true"><use href="#i-arrow"/></svg></button></div></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="block" id="about" aria-labelledby="about-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div><p class="eyebrow">About &amp; experience</p><h2 id="about-title">How I work</h2></div>
+        <p>Trained as a designer-architect, I've spent 10+ years designing digital products.</p>
+      </div>
+      <div class="about-grid">
+        <div class="approach">
+          <p class="big">I start from the business context and real user problems, then move in small, validated steps.</p>
+          <p>I've worked on large and small B2B and B2C projects, in large and small teams, and with large design systems and component libraries. I'm experienced in both legacy product redesigns and designing products from scratch — responsive web services and native iOS and Android apps.</p>
+          <p>AI tools are part of my workflow for ideation, UX exploration, content generation and rapid validation of UX/UI concepts.</p>
+          <ul class="phases" aria-label="My design process">
+            <li><b>01</b>Context</li><li><b>02</b>Problem discovery</li><li><b>03</b>Insights &amp; hypotheses</li><li><b>04</b>Solution exploration</li><li><b>05</b>Validation &amp; iteration</li><li><b>06</b>Outcome &amp; learnings</li>
+          </ul>
+
+          <div class="about-sub">
+            <h3>Expertise</h3>
+            <ul class="pills">
+              <li>AI tools in UX/UI design</li><li>Responsive web &amp; mobile apps</li><li>User story writing</li><li>Mockups &amp; rapid prototyping</li><li>High-fidelity prototyping</li><li>Graphic design</li><li>Print design &amp; prepress</li><li>Icon design</li><li>Illustration &amp; infographics</li>
+            </ul>
+          </div>
+          <div class="about-sub">
+            <h3>Tools</h3>
+            <ul class="pills">
+              <li>Figma / FigJam</li><li>ChatGPT</li><li>Figma Make</li><li>Lovable</li><li>Claude</li><li>Hotjar</li><li>Photoshop</li><li>Illustrator</li><li>Balsamiq</li><li>Lucidchart</li><li>Miro</li><li>Jira</li><li>Teams · Slack</li><li>Trello · Asana</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="eyebrow" style="margin-bottom:var(--s4)">Work experience</h3>
+          <ol class="timeline">
+            <li><h4>DataArt <span class="pos">· UX/UI Designer</span></h4><span class="dur">5 years</span><p>B2B and B2C projects in large and small teams; legacy redesigns and new products; large design systems; responsive web and native iOS/Android apps.</p></li>
+            <li><h4>Wildix <span class="pos">· Product Designer</span></h4><span class="dur">1 year</span><p>B2B communication web services. Redesigned mobile and web apps based on React Native; design system from scratch.</p></li>
+            <li><h4>Magic Powered <span class="pos">· Product Designer</span></h4><span class="dur">1 year</span><p>Social network startup: web pages and mobile apps for iOS and Android.</p></li>
+            <li><h4>Instasport <span class="pos">· Product Designer</span></h4><span class="dur">1 year</span><p>CRM system for sports club management, designed from the very start.</p></li>
+            <li><h4>Halo Lab <span class="pos">· UX/UI Designer</span></h4><span class="dur">2 years</span><p>Startups and legacy redesigns: management tools, chats, landing pages, constructors, logos, branding, illustrations.</p></li>
+          </ol>
+          <div class="about-sub two-col">
+            <div>
+              <h3>Other experience</h3>
+              <ul class="plain">
+                <li><b>Hillel IT School</b>UX/UI mentor in EVO project</li>
+                <li><b>Odyssey Hackathon 2.0 Nature, Netherlands</b>Product Designer</li>
+                <li><b>Odessa State Academy of Building and Architecture</b>University lecturer and scientist</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Education</h3>
+              <ul class="plain">
+                <li><b>Odessa State Academy of Building and Architecture</b>Designer-Architect, Master’s Degree</li>
+                <li><b>Projector IT School</b>Middle Mobile Apps Designer</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AI WORKFLOW ============ -->
+  <section class="block" id="ai-workflow" aria-labelledby="ai-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div><p class="eyebrow">Process</p><h2 id="ai-title">My general workflow with AI</h2></div>
+        <p>Five steps from idea to presented work. AI speeds up each step; design decisions stay mine.</p>
+      </div>
+      <ol class="flow" id="flow">
+          <li class="stage"><span class="stage-dot" aria-hidden="true">01</span><div class="stage-card"><h3>Research &amp; planning</h3><span class="stage-tool">ChatGPT</span><p>Give context about the product and its users, then prioritize features and map the user flow.</p><p class="stage-out">Output<b>Brief, priorities, user flow</b></p></div></li>
+          <li class="stage"><span class="stage-dot" aria-hidden="true">02</span><div class="stage-card"><h3>Competitors review</h3><span class="stage-tool">FigJam</span><p>Map how competitors solve the same flows: strengths, gaps and patterns worth reusing.</p><p class="stage-out">Output<b>Competitor map &amp; UX gaps</b></p></div></li>
+          <li class="stage"><span class="stage-dot" aria-hidden="true">03</span><div class="stage-card"><h3>Visual directions</h3><span class="stage-tool">Figma / Claude</span><p>Explore and compare several visual directions before committing to one.</p><p class="stage-out">Output<b>Chosen direction</b></p></div></li>
+          <li class="stage"><span class="stage-dot" aria-hidden="true">04</span><div class="stage-card"><h3>Build</h3><span class="stage-tool">Claude Code</span><p>Turn the chosen design into a working app to test real interactions.</p><p class="stage-out">Output<b>Working prototype</b></p></div></li>
+          <li class="stage"><span class="stage-dot" aria-hidden="true">05</span><div class="stage-card"><h3>Present</h3><span class="stage-tool">Gamma / Figma Slides</span><p>Package the process and result into a clear, editable presentation.</p><p class="stage-out">Output<b>Presentation deck</b></p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ RECOMMENDATIONS ============ -->
+  <section class="block" id="recommendations" aria-labelledby="rec-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div><p class="eyebrow">Recommendations</p><h2 id="rec-title">What colleagues say</h2></div>
+        <div class="rec-head-tools"><button class="icon-btn" type="button" id="rec-prev" aria-label="Previous recommendations"><svg aria-hidden="true"><use href="#i-left"/></svg></button><button class="icon-btn" type="button" id="rec-next" aria-label="Next recommendations"><svg aria-hidden="true"><use href="#i-right"/></svg></button></div>
+      </div>
+      <div class="quotes" id="quotes" tabindex="0" aria-label="Recommendations, scroll horizontally">
+        <figure class="quote">
+          <blockquote><div class="q-text"><p>I had the pleasure of working with Iryna at DataArt on a booking platform, and what a journey it was!</p>
+            <p>Iryna can turn a messy requirements document into polished, intuitive user flows. She has strong opinions and never gives up on what’s best for users. She always started from real user problems, asked the right questions early, and was never afraid to push back when something didn’t serve the user.</p>
+            <p>On top of that, she took on the redesign of a legacy product with a large existing user base, which was no easy ride. She balanced business needs with user needs and improved the product step by step, keeping current users comfortable while steadily raising the bar. The UX got dramatically better, and user feedback showed it.</p>
+            <p>She’s also a true team player: passionate, empathetic, and always ready to help her teammates, not just the users. She cares deeply, takes feedback without ego, and iterates fast.</p>
+            <p>Any team would be lucky to have her. I know I was.</p></div></blockquote><button class="q-more" type="button" aria-expanded="false" hidden>Read more</button>
+          <figcaption><span class="avatar" aria-hidden="true">MC</span><span class="who"><b>Mariam Chaduneli</b><span>Product Manager at Dataart</span><span>Managed Iryna directly</span></span></figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote><div class="q-text"><p>I had the pleasure of working with Iryna for two and a half years on the same project, where I supervised her work as Team Lead. She has strong expertise in UX/UI design, visual design, and design systems, with the ability to manage UX/UI activities end to end. She is proactive, reliable, and highly committed to delivering quality results. I would highly recommend her as a valuable asset to any design team.</p></div></blockquote><button class="q-more" type="button" aria-expanded="false" hidden>Read more</button>
+          <figcaption><span class="avatar" aria-hidden="true">VR</span><span class="who"><b>Víctor Rodríguez</b><span>UX Designer en WebBeds</span><span>Managed Iryna directly</span></span></figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote><div class="q-text"><p>Strongly recommend Iryna as a UI/UX designer and product manager 💪</p>
+            <p>I was dealing with her as a colleague and as a client for a pretty long time, so my words are backed by the challenges we've passed through together. Iryna has a business-oriented mindset. Due to her well-trained eye she feels current trends and knows how to natively integrate them. If needed, Iryna utilises AI advantages, however she remains an ambassador of human-to-human design. As a hard worker she can handle intensive development rhythms staying creative and constructive. Collaborative, yet independent in her opinions. I'm sure these qualities make Iryna a top specialist.</p></div></blockquote><button class="q-more" type="button" aria-expanded="false" hidden>Read more</button>
+          <figcaption><span class="avatar" aria-hidden="true">IS</span><span class="who"><b>Irina Spiglazova</b><span>Spécialiste en Informatique / Développeuse Full Stack Junior</span><span>Was Iryna’s client</span></span></figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote><div class="q-text"><p>I had the pleasure of working with Iryna on the same project at DataArt. She is a talented UI/UX Designer, a reliable and punctual professional, and a wonderful person to work with.</p>
+            <p>Iryna is always eager to learn, grow, and improve her skills. She brings professionalism, a positive attitude, and a collaborative spirit to the team. I truly enjoyed working with her and would gladly recommend her to any team looking for a skilled and dedicated designer.</p></div></blockquote><button class="q-more" type="button" aria-expanded="false" hidden>Read more</button>
+          <figcaption><span class="avatar" aria-hidden="true">MD</span><span class="who"><b>Mary Davtyan</b><span>Senior Product Designer</span><span>Worked with Iryna on the same team</span></span></figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote><div class="q-text"><p>Iryna brings the maturity and perspective of a seasoned design professional to every project. Their 10+ years of experience spans demanding financial, data, and e-commerce environments, where thoughtful UX decisions and clear information architecture are essential. Combined with their background as an architectural college teacher, this experience translates into a disciplined design methodology, strong conceptual thinking, and the ability to communicate complex ideas clearly.</p></div></blockquote><button class="q-more" type="button" aria-expanded="false" hidden>Read more</button>
+          <figcaption><span class="avatar" aria-hidden="true">MK</span><span class="who"><b>Mykhailo Kudynskyi</b><span>Business Analyst | BA</span><span>Worked with Iryna on the same team</span></span></figcaption>
+        </figure>
+      </div>
+      <p class="src-line">Quoted in full from <a href="https://www.linkedin.com/in/irynayungdesign/" target="_blank" rel="noopener">recommendations on LinkedIn</a>.</p>
+    </div>
+  </section>
+
+  <!-- ============ CV ============ -->
+  <section class="block" id="cv" aria-labelledby="cv-title">
+    <div class="wrap">
+      <div class="cv-panel">
+        <div class="cv-text">
+          <p class="eyebrow">Curriculum vitae</p>
+          <h2 id="cv-title">Download my CV</h2>
+          <p>2 A4 pages, print-ready, on a white background.</p>
+          <div class="cv-actions">
+            <button class="btn btn-primary btn-sm js-cv" type="button"><svg aria-hidden="true"><use href="#i-down"/></svg>Download CV (PDF)</button>
+            <button class="btn btn-ghost btn-sm" type="button" id="cv-view"><svg aria-hidden="true"><use href="#i-ext"/></svg>View CV</button>
+          </div>
+          <p class="cv-status" id="cv-status" role="status" aria-live="polite"></p>
+        </div>
+        <div class="cv-window"><img src="img/cv-preview.webp" width="579" height="819" alt="Top of the first page of Iryna Yung's CV" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div class="contact">
+        <div>
+          <p class="eyebrow">Contacts</p>
+          <h2 id="contact-title" style="margin-top:var(--s3)">Let’s talk about your product</h2>
+          <div class="email-row">
+            <span class="email" id="email">ireneyung.de.sign@gmail.com</span>
+            <button class="btn btn-glass btn-sm" type="button" id="copy-email"><svg aria-hidden="true"><use href="#i-copy"/></svg>Copy email</button>
+          </div>
+          <ul class="contact-list">
+            <li><a class="btn btn-primary" href="mailto:ireneyung.de.sign@gmail.com"><svg aria-hidden="true"><use href="#i-mail"/></svg>Write an email</a></li>
+            <li><a class="btn btn-ghost" href="https://www.linkedin.com/in/irynayungdesign/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-in"/></svg>LinkedIn</a></li>
+          </ul>
+        </div>
+        <ul class="facts-line" aria-label="Location and language">
+          <li><svg aria-hidden="true"><use href="#i-pin"/></svg>Odesa, Ukraine · Remote</li>
+          <li><svg aria-hidden="true"><use href="#i-lang"/></svg>English: Upper-Intermediate</li>
+        </ul>
+      </div>
+      <footer class="foot"><span>© 2026 Iryna Yung · UX/UI Designer</span><span>Client and product names in case studies are placeholders where noted.</span></footer>
+    </div>
+  </section>
+</main>
+
+<dialog class="sheet" id="sheet" aria-labelledby="sheet-title">
+  <div class="sheet-top">
+    <span class="eyebrow" id="sheet-crumb">Projects</span>
+    <div class="sheet-nav">
+      <button class="icon-btn" type="button" id="sheet-prev" aria-label="Previous project"><svg aria-hidden="true"><use href="#i-left"/></svg></button>
+      <button class="icon-btn" type="button" id="sheet-next" aria-label="Next project"><svg aria-hidden="true"><use href="#i-right"/></svg></button>
+      <button class="icon-btn" type="button" id="sheet-close" aria-label="Close project"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+  </div>
+  <div class="sheet-body" id="sheet-body"></div>
+</dialog>
+<dialog class="sheet cv-sheet" id="cv-sheet" aria-labelledby="cv-sheet-title">
+  <div class="sheet-top">
+    <span class="eyebrow" id="cv-sheet-title">Iryna Yung — CV · 2 pages</span>
+    <div class="sheet-nav">
+      <button class="btn btn-primary btn-sm js-cv" type="button"><svg aria-hidden="true"><use href="#i-down"/></svg>Download PDF</button>
+      <button class="icon-btn" type="button" id="cv-close" aria-label="Close CV"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+    </div>
+  </div>
+  <div class="cv-pages">
+    <img src="img/cv-page-1.webp" width="910" height="1287" alt="CV page 1: summary, expertise, tools, work experience, other experience and education" loading="lazy">
+    <img src="img/cv-page-2.webp" width="910" height="1287" alt="CV page 2: recently completed projects" loading="lazy">
+  </div>
+</dialog>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script>
+(function(){
+const did = s => '<ul class="did">'+s.split(';').map(x=>x.trim()).filter(Boolean).map(x=>'<li>'+x+'</li>').join('')+'</ul>';
+const shot = (src,cap,alt) => '<figure class="shot"><img src="img/'+src+'.webp" alt="'+(alt||cap)+'" loading="lazy"><figcaption>'+cap+'</figcaption></figure>';
+const facts = rows => '<div class="factbox"><dl class="facts">'+rows.map(r=>'<div><dt>'+r[0]+'</dt><dd>'+r[1]+'</dd></div>').join('')+'</dl></div>';
+const head = (crumb,title,sub) => '<header><p class="eyebrow">'+crumb+'</p><h2 id="sheet-title" style="margin-top:12px">'+title+'</h2>'+(sub?'<p class="sub">'+sub+'</p>':'')+'</header>';
+
+const P = {
+booking:{crumb:'Client case study · DataArt', html: head('Client case study · DataArt','B2B Booking Platform','Web · Responsive · Legacy redesign')+
+ '<div class="sheet-intro"><div class="overview"><h3 class="h-sec">Overview</h3><p>B2B travel integration platform for agencies and full-cycle booking providers (hotels, transfers, visas, payment, etc.). One of the core designers in a team of six, working on the redesign of a large legacy product with an established user base (100,000+ users).</p><p class="note-src">StarTravel is a placeholder name.</p></div>'+
+ facts([['Client','EU-based international platform'],['Platform','Web (responsive)'],['My role','Senior Product Designer, collaborating with a Design Lead and another designer'],['Constraints','Large existing user base and complex legacy codebase'],['Data','Customer surveys · Backend requests · Hotjar']])+'</div>'+
+ shot('booking-12','Before and after: the legacy search page and the redesigned one.','Side-by-side of the legacy StarTravel page and the redesigned search page')+
+ '<div><h3 class="h-sec">Turning insights into better user experiences</h3><ol class="process">'+
+ '<li class="step"><span class="num">01</span><h4>Business &amp; product context</h4><p class="tagline">Understanding the bigger picture.</p><ul><li>Established B2B platform with a large existing user base, outdated UI, and growing competition.</li><li>New users chose competitors; existing users reported usability issues and missing features.</li></ul></li>'+
+ '<li class="step"><span class="num">02</span><h4>Problem discovery</h4><p class="tagline">Finding real user pain points.</p><ul><li>New users struggled to navigate the interface and couldn\'t find key features.</li><li>Existing users requested features available in competitors.</li><li>Used stakeholder feedback, backend team requests, and Hotjar recordings to analyze user behavior, navigation issues, and friction points.</li></ul></li>'+
+ '<li class="step"><span class="num">03</span><h4>Insights &amp; hypotheses</h4><p class="tagline">Turning findings into direction.</p><ul><li><b>Key findings:</b> outdated, unintuitive interfaces; missing essential features; redundant functionality; lengthy workflows.</li><li><b>User needs:</b> faster workflows; clearer interfaces; essential new features; remove obsolete functionality.</li></ul><p class="note"><b>Hypothesis</b>Simplifying core workflows, reducing visual clutter, and adding key features would improve usability, increase engagement, and strengthen competitiveness.</p></li>'+
+ '<li class="step"><span class="num">04</span><h4>Solution exploration</h4><p class="tagline">Exploring options, choosing the best path.</p><ul><li>Chose an iterative approach, prioritizing frequently used functionality and balancing user needs with technical capacity.</li><li>Analyzed competitors to find feature gaps and UX opportunities.</li><li>Redesigned key user flows and reviewed them with the team.</li><li>Updated the UI while preserving the existing brand.</li></ul><p class="note"><b>Result</b>A clear plan for incremental releases, with validated features and a refreshed design.</p></li>'+
+ '<li class="step"><span class="num">05</span><h4>Validation &amp; iteration</h4><p class="tagline">Testing, learning, improving.</p><ul><li>Tested changes internally in a staging environment.</li><li>Collected team feedback and addressed missing or overlooked edge cases.</li><li>Reviewed solutions with stakeholders before release.</li><li>Released validated improvements to production and monitored user feedback.</li></ul><p class="note"><b>Approach</b>Staging tests / Team &amp; stakeholder feedback / Gradual rollout</p></li>'+
+ '<li class="step"><span class="num">06</span><h4>Outcome &amp; learnings</h4><p class="tagline">Measuring real impact.</p><ul><li>Monitored user behavior through Hotjar.</li><li>Collected direct customer feedback after releases.</li><li>Tracked conversion improvements across redesigned flows.</li></ul></li>'+
+ '</ol></div>'+
+ '<div class="takeaway"><span class="eyebrow">Key takeaway</span><p>Incremental redesign made it possible to modernize a complex legacy product while balancing usability, technical constraints, and the needs of an established user base.</p></div>'+
+ '<div class="case"><div><p class="eyebrow">Case study 1</p><h3 class="h-sec" style="margin-top:8px">Feature redesign: search bar</h3></div><div class="case-grid">'+
+ '<div><h5>Context</h5><p>Search is the primary entry point and the most frequently used feature of the platform. We analyzed each field individually to identify opportunities for improvement.</p></div>'+
+ '<div><h5>Problem discovery</h5><p>We evaluated the existing search experience — copy, errors, intuitiveness, and the number of steps required to reach a goal — together with user feedback and Hotjar metrics. Search was tightly coupled with the legacy architecture, which created several technical and UX limitations.</p></div>'+
+ '<div><h5>Insights &amp; hypotheses</h5><p>By applying UX best practices, preserving valuable legacy functionality, eliminating errors and visual clutter, simplifying flows, introducing competitor-proven features, and updating UI components, we could create a more intuitive and efficient search. We analyzed similar search components across competing products.</p></div>'+
+ '<div><h5>Validation &amp; outcome</h5><ul><li>Tested internally in staging, refined edge cases, reviewed with stakeholders, then released.</li><li>Analyzed Hotjar recordings and collected direct customer feedback.</li><li>Tracked an increase in the number of users successfully completing the search flow.</li><li>Monitored misclicks and negative interactions to find remaining friction.</li></ul></div>'+
+ '</div>'+shot('booking-09','Search bar analysis: heatmaps, field-by-field review and competitor comparison. The diagram is a visual representation of the approach.','Portfolio slide with Hotjar heatmaps and annotated search bar analysis')+'</div>'+
+ '<div class="case"><div><p class="eyebrow">Case study 2</p><h3 class="h-sec" style="margin-top:8px">New feature design: order card</h3></div>'+
+ '<ol class="steps-ol"><li>Define requirements — establish the scope and objectives.</li><li>Create user stories and align them with the Business Analyst (BA).</li><li>Map potential user flows.</li><li>Validate user flows with the client and a representative group of key users.</li><li>Conduct competitor analysis to identify best practices and potential opportunities.</li><li>Create low-fidelity wireframes to explore and select the most suitable overall approach.</li><li>Review wireframes with stakeholders and developers, prioritizing features and refining the scope to an MVP based on implementation timelines.</li><li>Create initial UI screens to demonstrate the proposed visual direction.</li><li>Develop high-fidelity prototypes using the design system, incorporating screen states and relevant use cases.</li><li>Design responsive layouts for different screen sizes.</li><li>Present design specifications to developers and walk them through the proposed solutions.</li><li>Support implementation and collaborate with developers throughout development.</li><li>Test the implementation internally, release the feature, and collect usage analytics and user feedback.</li></ol>'+
+ shot('booking-11','Order card: user flow mapping and wireframe exploration.','Portfolio slide showing user flow diagram and wireframes for the order card')+'</div>'+
+ '<div><h3 class="h-sec">What I did</h3>'+did('Requirements gathering and clarification; Wireframes and mockups; Storyboards and user scenarios; UI kit, design systems and component libraries; Clickable prototypes; User story development; Competitor analysis / best practices; Solution ideation and validation; High-fidelity design with user flows and use cases; Responsive design; Rapid prototyping (Figma Make); Iterative design; Collaboration with developers and stakeholders; UX audit; Design review; Consistency across multiple company products; AI-assisted content generation, visual exploration and validation')+'</div>'+
+ '<div class="shots">'+shot('booking-04','Hotel search results with filters and map view.')+shot('booking-05','Hotel page and alternative listing layouts.')+'<div class="shots two">'+shot('booking-06','Bookings and check-in screens.')+shot('booking-07','Responsive mobile versions: sign in, search and hotel page.')+'</div></div>'},
+
+network:{crumb:'Client case study · DataArt', html: head('Client case study · DataArt','Network Monitoring System','Web · Data dashboards')+
+ '<div class="sheet-intro"><div class="overview"><h3 class="h-sec">Overview</h3><p>A web-based platform for monitoring network and internet performance metrics across the United States, handling large volumes of complex data and presenting it in a clear, user-friendly way.</p><p>I designed interactive dashboards with charts, statistics, and interactive maps that give full visibility into network status, based on different access levels.</p></div>'+
+ facts([['Client','USA-based internet provider'],['Platform','Web'],['My role','UX/UI Designer'],['Focus','Dense data, statuses and alerts, role-based views']])+'</div>'+
+ '<div><h3 class="h-sec">What I did</h3>'+did('Requirements gathering and clarification; Wireframes and mockups; UI kit, design systems and component libraries; Clickable prototypes; Solution ideation and validation; High-fidelity design with user flows and use cases; Responsive design')+'</div>'+
+ '<div class="shots">'+shot('network-14','Map view with filters, KPIs and alert details.')+shot('network-15','Alert details and comparing two tests.')+shot('network-16','Admin topology: arranging network elements with drag and drop.')+'</div>'},
+
+logistics:{crumb:'Client case study · DataArt', html: head('Client case study · DataArt','Logistics iOS Application','iOS mobile app · Light and dark modes')+
+ '<div class="sheet-intro"><div class="overview"><h3 class="h-sec">Overview</h3><p>An iOS app for managers and warehouse staff to streamline route tracking, check-ins, and status updates, all integrated with an existing legacy system.</p><p>The app gives a fast and intuitive way to monitor routes and statuses, replacing previously manual processes for status changes and check-ins.</p><p class="note-src">NexDrive is a placeholder name.</p></div>'+
+ facts([['Client','USA-based logistics company'],['Platform','iOS'],['My role','UX/UI Designer'],['Outcome','Manual status changes and check-ins replaced by the app']])+'</div>'+
+ '<div><h3 class="h-sec">What I did</h3>'+did('Requirements gathering and clarification; Wireframes and mockups; Competitor review / best practices; UI kit, design systems / component libraries; Clickable prototypes; Solution ideation and validation; High-fidelity design with user flows and use cases')+'</div>'+
+ '<div class="shots">'+shot('logistics-18','Date and time pickers and confirmation dialogs.')+shot('logistics-19','Requests, quotes and route details in light mode.')+shot('logistics-20','Driver info, declining and route screens in dark mode.')+'</div>'},
+
+skillguide:{crumb:'Internal platform', html: head('Internal platform','Skill Guide','Web · Education')+
+ '<div class="overview"><p style="color:var(--ink-2);max-width:62ch">An internal learning platform designed to help DataArt employees develop programming language skills and learn new frameworks. It features a large, well-structured knowledge base organized by topics and learning paths, so people progress through courses at their own pace.</p></div>'+shot('skillguide','Lists, manuals and learning paths.')},
+trainbrain:{crumb:'Internal platform', html: head('Internal platform','Train Your Brain','Web · Education')+
+ '<div class="overview"><p style="color:var(--ink-2);max-width:62ch">A quiz-based learning service integrated into MindMaster, designed to help employees assess and reinforce their technical knowledge through interactive quizzes and self-evaluation exercises.</p></div>'+shot('trainbrain','Practice presets, quiz summary report and report dashboard.')},
+cabincrew:{crumb:'Operations product', html: head('Operations product','Cabin Crew Tablet Platform','Tablet · Operations')+
+ '<div class="overview"><p style="color:var(--ink-2);max-width:62ch">A tablet-based platform for airline cabin crew that streamlined onboard operations and improved passenger service. It enabled real-time boarding tracking, synchronization with passenger seatback screens, and both self-service and crew-assisted ordering. It also supported order fulfillment tracking, significantly accelerating service workflows. Future roadmap initiatives included integration with an instant payment system.</p></div>'+shot('cabincrew','Login, passenger manifest, boarding completed and menu screens.')},
+recognition:{crumb:'Internal system', html: head('Internal system','Recognition &amp; Rewards System','Iconography · Gamification')+
+ '<div class="overview"><p style="color:var(--ink-2);max-width:62ch">I designed an iconography guide that enabled any designer to create icons consistent with the company\'s visual identity, with clear design principles and practical guidelines for consistency and scalability across teams.</p><p style="color:var(--ink-2);max-width:62ch;margin-top:12px">I also created a badge-based recognition system aligned with the company\'s core values, helping increase employee engagement and reinforce desired behaviors through gamification and peer recognition.</p></div>'+shot('recognition','Iconography guide and badge set.')},
+icons:{crumb:'Visual design', html: head('Visual design','Icon design','')+shot('icons','Icon sets from the portfolio.')},
+mobile:{crumb:'Earlier work', html: head('Earlier work','Mobile apps','')+shot('mobile-early','Screens from earlier mobile projects.')},
+web:{crumb:'Earlier work', html: head('Earlier work','Web &amp; startups','')+shot('web-early','Screens from earlier web projects.')}
+};
+const order = ['booking','network','logistics','skillguide','trainbrain','cabincrew','recognition','icons','mobile','web'];
+const sheet = document.getElementById('sheet'), body = document.getElementById('sheet-body'), crumb = document.getElementById('sheet-crumb');
+let current = null, opener = null;
+function show(id, fromHash){
+  if(!P[id]) return;
+  current = id; body.innerHTML = P[id].html; crumb.textContent = P[id].crumb + ' · ' + (order.indexOf(id)+1) + ' / ' + order.length;
+  body.scrollTop = 0; sheet.scrollTop = 0;
+  const proc=body.querySelector('.process'); if(proc&&!matchMedia('(prefers-reduced-motion: reduce)').matches) requestAnimationFrame(()=>proc.classList.add('glow'));
+  if(!sheet.open){ if(typeof sheet.showModal==='function') sheet.showModal(); else sheet.setAttribute('open',''); }
+  if(!fromHash){ try{ history.replaceState(null,'','#'+id); }catch(e){} }
+}
+function close(){ if(sheet.open) sheet.close(); }
+sheet.addEventListener('close',()=>{ current=null; try{ history.replaceState(null,'',location.pathname+location.search); }catch(e){} if(opener){ opener.focus(); opener=null; } });
+document.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>{ opener=b; show(b.dataset.open); }));
+document.getElementById('sheet-close').addEventListener('click',close);
+const step = d => { const i=(order.indexOf(current)+d+order.length)%order.length; show(order[i]); };
+document.getElementById('sheet-prev').addEventListener('click',()=>step(-1));
+document.getElementById('sheet-next').addEventListener('click',()=>step(1));
+sheet.addEventListener('click',e=>{ if(e.target===sheet) close(); });
+sheet.addEventListener('keydown',e=>{ if(e.key==='ArrowRight'&&!e.target.closest('input,textarea')) step(1); if(e.key==='ArrowLeft'&&!e.target.closest('input,textarea')) step(-1); });
+function fromHash(){ const h=location.hash.slice(1); if(P[h]) show(h,true); }
+window.addEventListener('hashchange',fromHash); fromHash();
+
+/* nav highlight */
+const links=[...document.querySelectorAll('.nav-links a')];
+const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>{es.forEach(en=>{ if(en.isIntersecting){ links.forEach(l=>l.removeAttribute('aria-current')); const l=links[secs.indexOf(en.target)]; if(l) l.setAttribute('aria-current','true'); }});},{rootMargin:'-45% 0px -50% 0px'});
+  secs.forEach(s=>s&&io.observe(s));
+}
+
+/* recommendations: clamp + scroll buttons */
+const rail=document.getElementById('quotes');
+rail.querySelectorAll('.quote').forEach(q=>{
+  const t=q.querySelector('.q-text'), b=q.querySelector('.q-more');
+  requestAnimationFrame(()=>{ if(t.scrollHeight>t.clientHeight+4){ b.hidden=false; } });
+  b.addEventListener('click',()=>{ const o=q.classList.toggle('open'); b.setAttribute('aria-expanded',o); b.textContent=o?'Show less':'Read more'; });
+});
+const page=d=>rail.scrollBy({left:d*Math.max(rail.clientWidth*0.8,300),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+document.getElementById('rec-prev').addEventListener('click',()=>page(-1));
+document.getElementById('rec-next').addEventListener('click',()=>page(1));
+
+/* AI workflow glow: plays once when the section scrolls into view */
+const flow=document.getElementById('flow');
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window){
+  flow.classList.add('armed');
+  const fo=new IntersectionObserver(es=>{es.forEach(en=>{
+    if(en.isIntersecting){ flow.classList.add('play'); }
+    else { flow.classList.remove('play'); flow.classList.add('armed'); }
+  });},{threshold:.35});
+  fo.observe(flow);
+}
+
+/* glow accents: run once when each element scrolls into view */
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window){
+  const go=new IntersectionObserver(es=>{es.forEach(en=>{ en.target.classList.toggle('glow',en.isIntersecting); });},{threshold:.35});
+  document.querySelectorAll('.card.featured,.section-head').forEach(el=>go.observe(el));
+}
+
+/* project pictures follow the cursor slightly */
+if(matchMedia('(hover: hover) and (pointer: fine)').matches&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  document.querySelectorAll('.card').forEach(card=>{
+    const m=card.querySelector('.card-media'); if(!m) return;
+    let raf=0;
+    card.addEventListener('pointermove',e=>{
+      const r=m.getBoundingClientRect();
+      const x=Math.max(-1,Math.min(1,((e.clientX-r.left)/r.width-.5)*2)), y=Math.max(-1,Math.min(1,((e.clientY-r.top)/r.height-.5)*2));
+      cancelAnimationFrame(raf); raf=requestAnimationFrame(()=>{ m.style.setProperty('--px',x.toFixed(3)); m.style.setProperty('--py',y.toFixed(3)); });
+    });
+    card.addEventListener('pointerleave',()=>{ cancelAnimationFrame(raf); m.style.setProperty('--px',0); m.style.setProperty('--py',0); });
+  });
+}
+
+/* CV viewer */
+const cvSheet=document.getElementById('cv-sheet'); let cvOpener=null;
+document.getElementById('cv-view').addEventListener('click',e=>{ cvOpener=e.currentTarget; if(typeof cvSheet.showModal==='function') cvSheet.showModal(); else cvSheet.setAttribute('open',''); });
+document.getElementById('cv-close').addEventListener('click',()=>cvSheet.close());
+cvSheet.addEventListener('click',e=>{ if(e.target===cvSheet) cvSheet.close(); });
+cvSheet.addEventListener('close',()=>{ if(cvOpener){ cvOpener.focus(); cvOpener=null; } });
+
+/* toast */
+const toast=document.getElementById('toast'); let tt;
+function say(msg){ toast.textContent=msg; toast.hidden=false; clearTimeout(tt); tt=setTimeout(()=>toast.hidden=true,2600); }
+
+/* copy email */
+document.getElementById('copy-email').addEventListener('click',()=>{
+  const t='ireneyung.de.sign@gmail.com';
+  const sel=()=>{ const r=document.createRange(); r.selectNodeContents(document.getElementById('email')); const s=getSelection(); s.removeAllRanges(); s.addRange(r); say('Email selected — press Ctrl/Cmd + C to copy'); };
+  try{ navigator.clipboard.writeText(t).then(()=>say('Email copied'),sel); }catch(e){ sel(); }
+});
+
+/* CV download via the viewer's save dialog */
+const status=document.getElementById('cv-status');
+let dl=null;
+try{ if(window.claude&&window.claude.use) window.claude.use('downloads').then(d=>{dl=d;}).catch(()=>{}); }catch(e){}
+document.querySelectorAll('.js-cv').forEach(btn=>btn.addEventListener('click',async()=>{
+  if(!dl){ document.getElementById('cv').scrollIntoView({behavior:'smooth'}); status.textContent='Saving isn’t available in this view. Use “View CV” to read it here.'; return; }
+  btn.setAttribute('aria-busy','true'); status.textContent='Preparing the PDF…';
+  try{
+    const blob=await fetch('cv/Iryna-Yung-CV.pdf').then(r=>{ if(!r.ok) throw new Error('fetch'); return r.blob(); });
+    const res=await dl.save({filename:'Iryna-Yung-CV.pdf',data:blob});
+    status.textContent = res && res.status==='saved' ? 'CV saved: Iryna-Yung-CV.pdf' : 'CV sent to your chosen destination.';
+  }catch(e){
+    const c=e&&e.code;
+    status.textContent = c==='declined' ? 'Download cancelled. You can also use “View CV”.' : c==='rate_limited' ? 'A save dialog is already open — finish it first.' : 'Download isn’t available here. Use “View CV” instead.';
+  }finally{ btn.removeAttribute('aria-busy'); }
+}));
+})();
+</script>
+
+</body></html>
