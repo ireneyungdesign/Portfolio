@@ -266,6 +266,10 @@ dialog.sheet[open]{animation:sheetIn .38s cubic-bezier(.2,.7,.2,1)}
 .about-sub h3{font-size:var(--fs-lg);margin-bottom:var(--s4)}
 .pills{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
 .pills li{padding:7px 12px;border-radius:var(--r-pill);font-size:var(--fs-sm);color:var(--ink);background:var(--glass);border:1px solid var(--line)}
+.skills-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s6) var(--s5)}
+.skills-grid .pills li{font-size:var(--fs-xs);padding:6px 11px}
+.pills-quiet li{color:var(--ink-2);background:transparent}
+@media (max-width:560px){.skills-grid{grid-template-columns:1fr}}
 .two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s6)}
 @media (max-width:600px){.two-col{grid-template-columns:1fr}}
 .plain{list-style:none;margin:0;padding:0;display:grid;gap:var(--s3)}
@@ -620,17 +624,23 @@ dialog.sheet[open]{animation:sheetIn .38s cubic-bezier(.2,.7,.2,1)}
             <li><b>01</b>Context</li><li><b>02</b>Problem discovery</li><li><b>03</b>Insights &amp; hypotheses</li><li><b>04</b>Solution exploration</li><li><b>05</b>Validation &amp; iteration</li><li><b>06</b>Outcome &amp; learnings</li>
           </ul>
 
-          <div class="about-sub">
-            <h3>Expertise</h3>
-            <ul class="pills">
-              <li>AI tools in UX/UI design</li><li>Responsive web &amp; mobile apps</li><li>User story writing</li><li>Mockups &amp; rapid prototyping</li><li>High-fidelity prototyping</li><li>Graphic design</li><li>Print design &amp; prepress</li><li>Icon design</li><li>Illustration &amp; infographics</li>
-            </ul>
-          </div>
-          <div class="about-sub">
-            <h3>Tools</h3>
-            <ul class="pills">
-              <li>Figma / FigJam</li><li>ChatGPT</li><li>Figma Make</li><li>Lovable</li><li>Claude</li><li>Hotjar</li><li>Photoshop</li><li>Illustrator</li><li>Balsamiq</li><li>Lucidchart</li><li>Miro</li><li>Jira</li><li>Teams · Slack</li><li>Trello · Asana</li>
-            </ul>
+          <div class="about-sub skills-grid">
+            <div>
+              <h3>Expertise</h3>
+              <ul class="pills"><li>Product Design (B2B / B2C, SaaS)</li><li>End-to-end UX: discovery → handoff → design QA</li><li>Mobile (iOS, Android) &amp; responsive web</li><li>Design systems &amp; UI kits</li><li>User research &amp; usability testing</li><li>Dashboards &amp; data-heavy interfaces</li><li>AI-native design workflow</li></ul>
+            </div>
+            <div>
+              <h3>Main skills</h3>
+              <ul class="pills"><li>Wireframes / Hi-fi prototypes</li><li>User flows / Journey maps</li><li>Information architecture</li><li>User interviews / Usability testing</li><li>Product discovery / Hypotheses</li><li>Competitive analysis / UX audit</li><li>Design systems / Design tokens</li><li>Accessibility (WCAG)</li><li>Design handoff / Design QA</li></ul>
+            </div>
+            <div>
+              <h3>Tools</h3>
+              <ul class="pills"><li>Figma</li><li>FigJam</li><li>Figma Make</li><li>Claude</li><li>Claude Code</li><li>Gemini</li><li>ChatGPT</li><li>Gamma</li><li>Lovable</li><li>NotebookLM</li><li>GitHub</li><li>Hotjar</li><li>Photoshop</li><li>Illustrator</li><li>Miro</li><li>Lucidchart</li><li>Balsamiq</li><li>Jira</li><li>Slack</li><li>Trello</li><li>Asana</li></ul>
+            </div>
+            <div>
+              <h3>Additional skills</h3>
+              <ul class="pills pills-quiet"><li>Graphic design</li><li>Print design</li><li>Icon design</li><li>Illustrations</li><li>Article writing</li></ul>
+            </div>
           </div>
         </div>
 
