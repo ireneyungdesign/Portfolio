@@ -11,21 +11,21 @@
 /* Layout: one calm reading column (max 1200px) on a graphite velvet ground; glass is reserved for
    navigation, strength tiles, tags and overlays. Work is grouped by kind, each project opens in a sheet. */
 :root{
-  /* Color — graphite velvet, one cool accent */
-  --ground:#131315;          /* page ground */
-  --ground-2:#1a1a1e;        /* raised surface */
-  --ground-3:#232329;        /* image wells, inputs */
-  --ink:#f3f2ee;             /* primary text  ~16:1 */
-  --ink-2:#c6c5c0;           /* secondary text ~10:1 */
-  --ink-3:#9a9994;           /* captions ~6.3:1 */
-  --accent:#b9c5ff;          /* periwinkle — links, focus, key numbers */
-  --accent-ink:#11131c;      /* text on accent */
-  --line:rgba(255,255,255,.10);
-  --line-strong:rgba(255,255,255,.18);
+  /* Color — phosphor palette: obsidian ground, one green accent */
+  --ground:#121212;          /* page ground (obsidian) */
+  --ground-2:#171717;        /* raised surface */
+  --ground-3:#242424;        /* image wells, tags (ash) */
+  --ink:#fafafa;             /* primary text (snow) */
+  --ink-2:#b4b4b4;           /* secondary text (silver mist) */
+  --ink-3:#898989;           /* captions (smoke) */
+  --accent:#3ecf8e;          /* phosphor green — links, focus, key numbers, primary button */
+  --accent-ink:#0b1f15;      /* text on green */
+  --line:#2e2e2e;            /* charcoal hairline */
+  --line-strong:#393939;     /* slate — control borders */
   --glass:rgba(255,255,255,.055);
   --glass-hi:rgba(255,255,255,.09);
-  --glow-cool:rgba(92,108,210,.20);
-  --glow-warm:rgba(196,150,110,.10);
+  --glow-cool:rgba(62,207,142,.09);
+  --glow-warm:rgba(0,98,57,.16);
   --shadow:0 24px 60px -24px rgba(0,0,0,.65);
   /* Type */
   --display:"Jost","Futura","Century Gothic","Avenir Next",system-ui,sans-serif;
@@ -48,7 +48,7 @@ body{
   background-image:
     radial-gradient(1100px 700px at 8% -10%,var(--glow-cool),transparent 60%),
     radial-gradient(900px 600px at 105% 18%,var(--glow-warm),transparent 60%),
-    radial-gradient(800px 900px at 50% 120%,rgba(92,108,210,.10),transparent 60%);
+    radial-gradient(800px 900px at 50% 120%,rgba(0,98,57,.12),transparent 60%);
   background-attachment:fixed;
 }
 /* velvet grain */
@@ -72,8 +72,8 @@ p{margin:0}
   font:500 var(--fs-sm)/1 var(--body);letter-spacing:.01em;text-decoration:none;cursor:pointer;border:1px solid transparent;
   transition:background .2s,border-color .2s,transform .2s,color .2s;white-space:nowrap}
 .btn svg{width:18px;height:18px;flex:none}
-.btn-primary{background:var(--ink);color:var(--ground)}
-.btn-primary:hover{background:#fff;transform:translateY(-1px)}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{background:#00c573;transform:translateY(-1px)}
 .btn-glass{background:var(--glass);color:var(--ink);border-color:var(--line-strong);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur)}
 .btn-glass:hover{background:var(--glass-hi);border-color:rgba(255,255,255,.3)}
 .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-strong)}
@@ -82,7 +82,7 @@ p{margin:0}
 .btn[aria-busy="true"]{opacity:.7;pointer-events:none}
 
 /* ---------- Nav ---------- */
-.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(19,19,21,.66);border-bottom:1px solid var(--line);
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(18,18,18,.72);border-bottom:1px solid var(--line);
   backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur)}
 .nav-bar{display:flex;align-items:center;gap:var(--s4);min-height:68px;padding-block:10px}
 .brand{display:flex;align-items:baseline;gap:10px;color:var(--ink);text-decoration:none;font-family:var(--display);font-weight:500;font-size:1.15rem;white-space:nowrap}
@@ -195,12 +195,12 @@ dialog.cv-sheet{width:min(860px,100%)}
 .cv-pages img{width:100%;max-width:760px;height:auto;background:#fff;border-radius:4px;box-shadow:0 20px 50px -20px rgba(0,0,0,.7)}
 /* ---------- Project sheet (dialog) ---------- */
 dialog.sheet{width:min(1080px,100%);max-width:100%;max-height:100%;height:100%;margin:0 0 0 auto;padding:0;border:0;color:var(--ink);
-  background:rgba(20,20,23,.92);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border-left:1px solid var(--line-strong);box-shadow:-30px 0 80px -30px rgba(0,0,0,.8)}
+  background:rgba(18,18,18,.92);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border-left:1px solid var(--line-strong);box-shadow:-30px 0 80px -30px rgba(0,0,0,.8)}
 dialog.sheet::backdrop{background:rgba(6,6,8,.6);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
 dialog.sheet[open]{animation:sheetIn .38s cubic-bezier(.2,.7,.2,1)}
 @keyframes sheetIn{from{transform:translateX(40px);opacity:.4}to{transform:none;opacity:1}}
 .sheet-top{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:var(--s4);padding:calc(14px + env(safe-area-inset-top,0px)) max(20px,env(safe-area-inset-right,0px)) 14px 28px;
-  background:rgba(20,20,23,.85);border-bottom:1px solid var(--line);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur)}
+  background:rgba(18,18,18,.85);border-bottom:1px solid var(--line);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur)}
 .sheet-top .eyebrow{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .sheet-nav{display:flex;gap:8px;flex:none}
 .icon-btn{width:44px;height:44px;display:inline-grid;place-items:center;border-radius:50%;background:var(--glass);border:1px solid var(--line-strong);color:var(--ink);cursor:pointer}
@@ -236,7 +236,7 @@ dialog.sheet[open]{animation:sheetIn .38s cubic-bezier(.2,.7,.2,1)}
 .step ul{margin:4px 0 0;padding-left:18px;font-size:var(--fs-sm);color:var(--ink-2);display:grid;gap:4px}
 .step .note{margin-top:6px;padding-top:10px;border-top:1px solid var(--line);font-size:var(--fs-xs);color:var(--ink-2)}
 .step .note b{display:block;color:var(--ink);font-weight:600;font-size:.8rem;margin-bottom:2px}
-.takeaway{padding:var(--s6);border-radius:var(--r-lg);background:linear-gradient(135deg,rgba(185,197,255,.14),rgba(185,197,255,.03));border:1px solid rgba(185,197,255,.28)}
+.takeaway{padding:var(--s6);border-radius:var(--r-lg);background:linear-gradient(135deg,rgba(62,207,142,.14),rgba(62,207,142,.03));border:1px solid rgba(62,207,142,.28)}
 .takeaway .eyebrow{color:var(--accent)}
 .takeaway p{font-family:var(--display);font-size:clamp(1.25rem,1.05rem + .7vw,1.7rem);line-height:1.35;margin-top:var(--s3);max-width:52ch}
 .case{display:grid;gap:var(--s5);padding-top:var(--s6);border-top:1px solid var(--line)}
@@ -284,21 +284,21 @@ dialog.sheet[open]{animation:sheetIn .38s cubic-bezier(.2,.7,.2,1)}
 /* ---------- AI workflow ---------- */
 .flow{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--s4);list-style:none;margin:0;padding:0;counter-reset:stage}
 .flow::before{content:"";position:absolute;left:10%;right:10%;top:27px;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(185,197,255,.55) 12%,rgba(185,197,255,.55) 88%,transparent)}
+  background:linear-gradient(90deg,transparent,rgba(62,207,142,.55) 12%,rgba(62,207,142,.55) 88%,transparent)}
 .stage{position:relative;display:grid;grid-template-rows:auto 1fr;gap:var(--s3);text-align:center;justify-items:center}
 .stage-dot{position:relative;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font:500 1.05rem/1 var(--mono);color:var(--accent);
-  background:var(--ground);border:1px solid rgba(185,197,255,.45);box-shadow:0 0 0 6px var(--ground),0 0 30px -6px rgba(185,197,255,.45)}
+  background:var(--ground);border:1px solid rgba(62,207,142,.45);box-shadow:0 0 0 6px var(--ground),0 0 30px -6px rgba(62,207,142,.45)}
 .stage-card{width:100%;display:grid;gap:10px;padding:var(--s5) var(--s4);border-radius:var(--r-md);background:var(--glass);border:1px solid var(--line);
   backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);height:100%;display:flex;flex-direction:column;align-items:center;gap:10px}
 .stage-card h3{font-size:1.15rem;font-family:var(--display);font-weight:500}
-.stage-tool{justify-self:center;align-self:center;text-align:center;font:500 .72rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink);background:var(--accent);padding:6px 10px;border-radius:6px}
+.stage-tool{justify-self:center;align-self:center;text-align:center;font:500 .72rem/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);background:none;padding:0}
 .stage-card p{font-size:var(--fs-sm);color:var(--ink-2);line-height:1.5}
 .stage-out{margin-top:auto;width:100%;padding-top:10px;border-top:1px solid var(--line);font-size:var(--fs-xs);color:var(--ink-3)}
 .stage-out b{display:block;color:var(--ink);font-weight:500;font-size:var(--fs-sm);margin-top:2px}
 .flow-note{margin-top:var(--s5);font-size:var(--fs-sm);color:var(--ink-3);max-width:70ch}
 @media (max-width:900px){
   .flow{grid-template-columns:1fr;gap:var(--s4)}
-  .flow::before{left:27px;right:auto;top:28px;bottom:28px;width:1px;height:auto;background:linear-gradient(180deg,transparent,rgba(185,197,255,.55) 8%,rgba(185,197,255,.55) 92%,transparent)}
+  .flow::before{left:27px;right:auto;top:28px;bottom:28px;width:1px;height:auto;background:linear-gradient(180deg,transparent,rgba(62,207,142,.55) 8%,rgba(62,207,142,.55) 92%,transparent)}
   .stage{grid-template-columns:56px minmax(0,1fr);grid-template-rows:auto;text-align:left;justify-items:start;align-items:start;gap:var(--s4)}
   .stage-card{align-items:flex-start}
   .stage-tool{justify-self:start;align-self:flex-start}
@@ -345,7 +345,7 @@ dialog.sheet[open]{animation:sheetIn .38s cubic-bezier(.2,.7,.2,1)}
 
 /* ===== AI workflow: travelling dot ===== */
 .flow::after{content:"";position:absolute;left:10%;top:23px;width:9px;height:9px;border-radius:50%;background:var(--accent);
-  box-shadow:0 0 0 4px rgba(185,197,255,.18),0 0 18px 4px rgba(185,197,255,.6);opacity:0;pointer-events:none}
+  box-shadow:0 0 0 4px rgba(62,207,142,.18),0 0 18px 4px rgba(62,207,142,.6);opacity:0;pointer-events:none}
 @media (prefers-reduced-motion:no-preference){
   .flow.armed .stage-dot{border-color:var(--line);box-shadow:0 0 0 6px var(--ground);color:var(--ink-3)}
   .flow.play::after{animation:flowDot 4.4s cubic-bezier(.45,0,.25,1) .2s both}
@@ -356,8 +356,8 @@ dialog.sheet[open]{animation:sheetIn .38s cubic-bezier(.2,.7,.2,1)}
   .flow.play .stage:nth-child(3) .stage-dot{animation-delay:2.27s}
   .flow.play .stage:nth-child(4) .stage-dot{animation-delay:3.24s}
   .flow.play .stage:nth-child(5) .stage-dot{animation-delay:4.2s}
-  @keyframes dotOn{0%{border-color:var(--line);color:var(--ink-3);box-shadow:0 0 0 6px var(--ground)}50%{box-shadow:0 0 0 6px var(--ground),0 0 44px 4px rgba(185,197,255,.8);transform:scale(1.08)}
-    100%{border-color:rgba(185,197,255,.45);color:var(--accent);box-shadow:0 0 0 6px var(--ground),0 0 30px -6px rgba(185,197,255,.45);transform:none}}
+  @keyframes dotOn{0%{border-color:var(--line);color:var(--ink-3);box-shadow:0 0 0 6px var(--ground)}50%{box-shadow:0 0 0 6px var(--ground),0 0 44px 4px rgba(62,207,142,.8);transform:scale(1.08)}
+    100%{border-color:rgba(62,207,142,.45);color:var(--accent);box-shadow:0 0 0 6px var(--ground),0 0 30px -6px rgba(62,207,142,.45);transform:none}}
 }
 @media (max-width:900px){
   .flow::after{left:23px;top:28px}
@@ -380,11 +380,11 @@ dialog.sheet[open]{animation:sheetIn .38s cubic-bezier(.2,.7,.2,1)}
 .section-head h2::after{content:"";position:absolute;left:0;bottom:0;width:64px;height:2px;border-radius:2px;background:var(--accent);opacity:.45;transform-origin:left center}
 /* 4. featured card edge light */
 .card.featured::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;pointer-events:none;z-index:3;opacity:0;
-  background:conic-gradient(from var(--edge),transparent 0deg 250deg,rgba(185,197,255,.25) 290deg,rgba(220,227,255,1) 330deg,rgba(185,197,255,.25) 350deg,transparent 360deg);
+  background:conic-gradient(from var(--edge),transparent 0deg 250deg,rgba(62,207,142,.25) 290deg,rgba(160,240,200,1) 330deg,rgba(62,207,142,.25) 350deg,transparent 360deg);
   -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
 @media (prefers-reduced-motion:no-preference){
   .section-head.glow h2::after{animation:trace 2.4s cubic-bezier(.45,0,.25,1) .15s both}
-  @keyframes trace{0%{transform:scaleX(0);opacity:1;box-shadow:0 0 18px 3px rgba(185,197,255,.8)}60%{transform:scaleX(1);opacity:1;box-shadow:0 0 18px 3px rgba(185,197,255,.8)}100%{transform:scaleX(1);opacity:.45;box-shadow:none}}
+  @keyframes trace{0%{transform:scaleX(0);opacity:1;box-shadow:0 0 18px 3px rgba(62,207,142,.8)}60%{transform:scaleX(1);opacity:1;box-shadow:0 0 18px 3px rgba(62,207,142,.8)}100%{transform:scaleX(1);opacity:.45;box-shadow:none}}
   .card.featured.glow::after{animation:edgeRun 4.6s cubic-bezier(.45,0,.25,1) .3s both}
   @keyframes edgeRun{0%{--edge:-40deg;opacity:0}10%{opacity:1}88%{opacity:1}100%{--edge:330deg;opacity:0}}
   /* 3. case-study steps light up in order */
@@ -396,8 +396,8 @@ dialog.sheet[open]{animation:sheetIn .38s cubic-bezier(.2,.7,.2,1)}
   .process.glow .step:nth-child(4),.process.glow .step:nth-child(4) .num{animation-delay:2.8s}
   .process.glow .step:nth-child(5),.process.glow .step:nth-child(5) .num{animation-delay:3.59s}
   .process.glow .step:nth-child(6),.process.glow .step:nth-child(6) .num{animation-delay:4.38s}
-  @keyframes stepGlow{0%{opacity:.4;transform:translateY(8px);border-color:var(--line)}45%{opacity:1;transform:none;border-color:rgba(185,197,255,.55);box-shadow:0 0 34px -8px rgba(185,197,255,.55)}100%{opacity:1;transform:none;border-color:var(--line);box-shadow:none}}
-  @keyframes numGlow{0%,100%{text-shadow:none}45%{text-shadow:0 0 14px rgba(185,197,255,1)}}
+  @keyframes stepGlow{0%{opacity:.4;transform:translateY(8px);border-color:var(--line)}45%{opacity:1;transform:none;border-color:rgba(62,207,142,.55);box-shadow:0 0 34px -8px rgba(62,207,142,.55)}100%{opacity:1;transform:none;border-color:var(--line);box-shadow:none}}
+  @keyframes numGlow{0%,100%{text-shadow:none}45%{text-shadow:0 0 14px rgba(62,207,142,1)}}
 }
 
 
