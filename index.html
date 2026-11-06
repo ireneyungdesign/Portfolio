@@ -324,6 +324,28 @@ dialog.sheet[open]{animation:sheetIn .38s cubic-bezier(.2,.7,.2,1)}
 .who span{display:block;font-size:var(--fs-xs);color:var(--ink-3);line-height:1.45}
 .src-line{margin-top:var(--s3);font-size:var(--fs-sm);color:var(--ink-3)}
 
+/* ---------- Life outside Figma ---------- */
+.life{margin-top:var(--s9)}
+.life-head{display:flex;align-items:baseline;gap:var(--s4);flex-wrap:wrap;margin-bottom:var(--s5)}
+.life-head h2{font-size:var(--fs-xl)}
+.life-viewport{overflow:hidden;margin-inline:calc(-1 * max(20px,env(safe-area-inset-left,0px)));padding-block:22px 30px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.life-viewport{cursor:grab;touch-action:pan-y;-webkit-user-select:none;user-select:none}
+.life-viewport.dragging{cursor:grabbing}
+.life-viewport.dragging .polaroid{transition:none}
+.life-track{display:flex;width:max-content;will-change:transform}
+.life-row{display:flex;gap:28px;padding:0 14px;margin:0;list-style:none}
+.polaroid{flex:none;padding:8px 8px 28px;background:#f4f2ec;border-radius:4px;box-shadow:0 18px 40px -18px rgba(0,0,0,.8);
+  transform:rotate(var(--r));transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s}
+.polaroid img{display:block;height:200px;width:auto;max-width:none;border-radius:2px;filter:saturate(.92)}
+.polaroid:hover{transform:rotate(0deg) translateY(-10px) scale(1.06);box-shadow:0 28px 50px -18px rgba(0,0,0,.9),0 0 0 1px var(--accent);z-index:2;position:relative}
+@media (max-width:600px){.polaroid img{height:150px}.life-row{gap:18px}}
+@media (prefers-reduced-motion:no-preference){
+  .life-row .polaroid:nth-child(odd){animation:bob 6s ease-in-out infinite}
+  .life-row .polaroid:nth-child(even){animation:bob 7s ease-in-out infinite reverse}
+  @keyframes bob{0%,100%{translate:0 0}50%{translate:0 -6px}}
+}
+
 /* ---------- CV + Contact ---------- */
 .cv-panel{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:var(--s6);align-items:stretch;padding:var(--s5) var(--s5) 0 var(--s6);border-radius:var(--r-lg);
   background:linear-gradient(150deg,rgba(255,255,255,.075),rgba(255,255,255,.02));border:1px solid var(--line-strong);overflow:hidden;
@@ -406,8 +428,8 @@ dialog.sheet[open]{animation:sheetIn .38s cubic-bezier(.2,.7,.2,1)}
 
 /* ===== Gentle reveal of blocks on scroll ===== */
 @media (prefers-reduced-motion:no-preference){
-  html.reveal-on :is(.section-head,.strength,.group-head,.card,.about-grid>div,.skill-col,.flow,.quotes,.src-line,.cv-panel,.contact,.foot):not(.shown){opacity:0;translate:0 22px}
-  html.reveal-on :is(.section-head,.strength,.group-head,.card,.about-grid>div,.skill-col,.flow,.quotes,.src-line,.cv-panel,.contact,.foot){transition:opacity 1s cubic-bezier(.2,.7,.2,1) var(--rd,0s),translate 1.1s cubic-bezier(.2,.7,.2,1) var(--rd,0s),border-color .25s}
+  html.reveal-on :is(.section-head,.strength,.group-head,.card,.about-grid>div,.skill-col,.flow,.quotes,.src-line,.cv-panel,.contact,.life,.foot):not(.shown){opacity:0;translate:0 22px}
+  html.reveal-on :is(.section-head,.strength,.group-head,.card,.about-grid>div,.skill-col,.flow,.quotes,.src-line,.cv-panel,.contact,.life,.foot){transition:opacity 1s cubic-bezier(.2,.7,.2,1) var(--rd,0s),translate 1.1s cubic-bezier(.2,.7,.2,1) var(--rd,0s),border-color .25s}
 }
 /* load motion (hero) */
 @media (prefers-reduced-motion:no-preference){
@@ -790,6 +812,50 @@ dialog.sheet[open]{animation:sheetIn .38s cubic-bezier(.2,.7,.2,1)}
           <li><svg aria-hidden="true"><use href="#i-lang"/></svg>English: C1 (Advanced)</li>
         </ul>
       </div>
+      <div class="life" aria-labelledby="life-title">
+        <div class="life-head">
+          <p class="eyebrow">Off screen</p>
+          <h2 id="life-title">Life outside Figma</h2>
+        </div>
+        <div class="life-viewport" tabindex="0" role="region" aria-label="Photo strip. Drag or use the arrow keys to scroll">
+          <div class="life-track">
+            <ul class="life-row">
+          <li class="polaroid" style="--r:-3deg"><img src="img/life-01.webp" width="345" height="460" alt="Iryna in reindeer antlers and light-up glasses" loading="lazy" draggable="false"></li>
+          <li class="polaroid" style="--r:2.5deg"><img src="img/life-02.webp" width="345" height="460" alt="Iryna in a motorcycle helmet and skull face mask, showing a peace sign" loading="lazy" draggable="false"></li>
+          <li class="polaroid" style="--r:-1.5deg"><img src="img/life-03.webp" width="613" height="460" alt="Iryna working on a laptop in a sunny garden" loading="lazy" draggable="false"></li>
+          <li class="polaroid" style="--r:3deg"><img src="img/life-04.webp" width="345" height="460" alt="Iryna with a black horse" loading="lazy" draggable="false"></li>
+          <li class="polaroid" style="--r:-2.5deg"><img src="img/life-05.webp" width="613" height="460" alt="A hackathon hall full of teams under blue lights" loading="lazy" draggable="false"></li>
+          <li class="polaroid" style="--r:1.5deg"><img src="img/life-06.webp" width="345" height="460" alt="Iryna hugging a dalmatian at a table" loading="lazy" draggable="false"></li>
+          <li class="polaroid" style="--r:-2deg"><img src="img/life-07.webp" width="613" height="460" alt="Iryna on a hill with two dogs, looking out at the mountains" loading="lazy" draggable="false"></li>
+          <li class="polaroid" style="--r:3deg"><img src="img/life-08.webp" width="345" height="460" alt="A person inside a large winged wooden sculpture at night" loading="lazy" draggable="false"></li>
+          <li class="polaroid" style="--r:-1deg"><img src="img/life-09.webp" width="818" height="460" alt="View over the handlebars of a motorcycle on a mountain road" loading="lazy" draggable="false"></li>
+          <li class="polaroid" style="--r:2deg"><img src="img/life-10.webp" width="460" height="460" alt="Mirror selfie with a head torch" loading="lazy" draggable="false"></li>
+          <li class="polaroid" style="--r:-3deg"><img src="img/life-11.webp" width="345" height="460" alt="Iryna in a colourful poncho sitting by a monument" loading="lazy" draggable="false"></li>
+          <li class="polaroid" style="--r:1deg"><img src="img/life-12.webp" width="818" height="460" alt="Hackathon tables and whiteboards late at night" loading="lazy" draggable="false"></li>
+          <li class="polaroid" style="--r:-2deg"><img src="img/life-13.webp" width="613" height="460" alt="Iryna sitting on the floor in front of a DeLorean car" loading="lazy" draggable="false"></li>
+          <li class="polaroid" style="--r:2.5deg"><img src="img/life-14.webp" width="345" height="460" alt="Iryna riding a scooter through the city" loading="lazy" draggable="false"></li>
+          <li class="polaroid" style="--r:-1.5deg"><img src="img/life-15.webp" width="345" height="460" alt="Iryna in a colourful poncho sitting on a rock" loading="lazy" draggable="false"></li>
+            </ul>
+            <ul class="life-row" aria-hidden="true">
+          <li class="polaroid" style="--r:-3deg"><img src="img/life-01.webp" width="345" height="460" alt="" loading="lazy" draggable="false"></li>
+          <li class="polaroid" style="--r:2.5deg"><img src="img/life-02.webp" width="345" height="460" alt="" loading="lazy" draggable="false"></li>
+          <li class="polaroid" style="--r:-1.5deg"><img src="img/life-03.webp" width="613" height="460" alt="" loading="lazy" draggable="false"></li>
+          <li class="polaroid" style="--r:3deg"><img src="img/life-04.webp" width="345" height="460" alt="" loading="lazy" draggable="false"></li>
+          <li class="polaroid" style="--r:-2.5deg"><img src="img/life-05.webp" width="613" height="460" alt="" loading="lazy" draggable="false"></li>
+          <li class="polaroid" style="--r:1.5deg"><img src="img/life-06.webp" width="345" height="460" alt="" loading="lazy" draggable="false"></li>
+          <li class="polaroid" style="--r:-2deg"><img src="img/life-07.webp" width="613" height="460" alt="" loading="lazy" draggable="false"></li>
+          <li class="polaroid" style="--r:3deg"><img src="img/life-08.webp" width="345" height="460" alt="" loading="lazy" draggable="false"></li>
+          <li class="polaroid" style="--r:-1deg"><img src="img/life-09.webp" width="818" height="460" alt="" loading="lazy" draggable="false"></li>
+          <li class="polaroid" style="--r:2deg"><img src="img/life-10.webp" width="460" height="460" alt="" loading="lazy" draggable="false"></li>
+          <li class="polaroid" style="--r:-3deg"><img src="img/life-11.webp" width="345" height="460" alt="" loading="lazy" draggable="false"></li>
+          <li class="polaroid" style="--r:1deg"><img src="img/life-12.webp" width="818" height="460" alt="" loading="lazy" draggable="false"></li>
+          <li class="polaroid" style="--r:-2deg"><img src="img/life-13.webp" width="613" height="460" alt="" loading="lazy" draggable="false"></li>
+          <li class="polaroid" style="--r:2.5deg"><img src="img/life-14.webp" width="345" height="460" alt="" loading="lazy" draggable="false"></li>
+          <li class="polaroid" style="--r:-1.5deg"><img src="img/life-15.webp" width="345" height="460" alt="" loading="lazy" draggable="false"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
       <footer class="foot"><span>© 2026 Iryna Yung · Product Designer (UX/UI)</span><span>Client and product names in case studies are placeholders where noted.</span></footer>
     </div>
   </section>
@@ -966,13 +1032,44 @@ cvSheet.addEventListener('close',()=>{ if(cvOpener){ cvOpener.focus(); cvOpener=
   const root=document.documentElement; window.__reveal=true;
   if(!root.classList.contains('reveal-on')) return;
   let first=true; /* blocks visible on load wait for the hero text to settle */
-  const els=[...document.querySelectorAll('.section-head,.strength,.group-head,.card,.about-grid>div,.skill-col,.flow,.quotes,.src-line,.cv-panel,.contact,.foot')];
+  const els=[...document.querySelectorAll('.section-head,.strength,.group-head,.card,.about-grid>div,.skill-col,.flow,.quotes,.src-line,.cv-panel,.contact,.life,.foot')];
   const ro=new IntersectionObserver(es=>{
     const vis=es.filter(e=>e.isIntersecting).sort((a,b)=>(a.boundingClientRect.top-b.boundingClientRect.top)||(a.boundingClientRect.left-b.boundingClientRect.left));
     const base=first&&vis.length?0.55:0; if(vis.length) first=false;
     vis.forEach((e,i)=>{ e.target.style.setProperty('--rd',(base+Math.min(i*0.09,0.45)).toFixed(2)+'s'); e.target.classList.add('shown'); ro.unobserve(e.target); });
   },{threshold:0.12,rootMargin:'0px 0px -6% 0px'});
   els.forEach(el=>ro.observe(el));
+})();
+
+/* photo strip: slow auto-scroll, drag (with inertia) or arrow keys to browse, loops endlessly */
+(function(){
+  const vp=document.querySelector('.life-viewport'), track=vp&&vp.querySelector('.life-track'); if(!track) return;
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const auto=reduce?0:-0.4;            /* px per frame at 60 fps, leftward */
+  let x=0, half=0, v=0, drag=false, moved=0, lastX=0, lastT=0, hover=false, visible=true, prev=performance.now();
+  const measure=()=>{ half=track.scrollWidth/2; };
+  measure(); addEventListener('resize',measure); track.querySelectorAll('img').forEach(i=>i.addEventListener('load',measure));
+  if('IntersectionObserver' in window) new IntersectionObserver(es=>{ visible=es[0].isIntersecting; }).observe(vp);
+  function tick(t){
+    const dt=Math.min(64,t-prev)/16.67; prev=t;
+    if(visible){
+      if(!drag){
+        if(Math.abs(v)>0.05){ x+=v*dt; v*=Math.pow(0.93,dt); }
+        else if(!hover) x+=auto*dt;
+      }
+      if(half){ while(x<=-half) x+=half; while(x>0) x-=half; }
+      track.style.transform='translate3d('+x.toFixed(2)+'px,0,0)';
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+  vp.addEventListener('pointerdown',e=>{ if(e.button!==0) return; drag=true; moved=0; v=0; lastX=e.clientX; lastT=performance.now(); vp.setPointerCapture(e.pointerId); vp.classList.add('dragging'); });
+  vp.addEventListener('pointermove',e=>{ if(!drag) return; const now=performance.now(), dx=e.clientX-lastX; x+=dx; moved+=Math.abs(dx);
+    v=Math.max(-40,Math.min(40,dx/Math.max(1,(now-lastT)/16.67))); lastX=e.clientX; lastT=now; });
+  const end=()=>{ if(!drag) return; drag=false; vp.classList.remove('dragging'); if(performance.now()-lastT>80) v=0; };
+  vp.addEventListener('pointerup',end); vp.addEventListener('pointercancel',end); vp.addEventListener('lostpointercapture',end);
+  vp.addEventListener('mouseenter',()=>{ hover=true; }); vp.addEventListener('mouseleave',()=>{ hover=false; });
+  vp.addEventListener('keydown',e=>{ if(e.key==='ArrowRight'){ v=-14; e.preventDefault(); } else if(e.key==='ArrowLeft'){ v=14; e.preventDefault(); } });
 })();
 
 /* toast */
