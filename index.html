@@ -437,6 +437,39 @@ dialog.sheet[open]{animation:sheetIn .38s cubic-bezier(.2,.7,.2,1)}
   .rise{animation-delay:.05s}.rise.d1{animation-delay:.18s}.rise.d2{animation-delay:.3s}.rise.d3{animation-delay:.42s}.rise.d4{animation-delay:.56s}
   @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 }
+/* ---------- Live products strip: wordmarks, hover reveals role, click opens site ---------- */
+.live{margin-top:var(--s7);padding:var(--s4) var(--s4) var(--s3);border-radius:var(--r-lg);background:var(--ground-2);border:1px solid var(--line-strong)}
+@media (max-width:560px){.live{padding:var(--s3)}}
+.live-head{display:flex;align-items:baseline;justify-content:space-between;gap:4px var(--s5);flex-wrap:wrap;margin:0 0 var(--s2);padding:4px 8px 0}
+.live-head h2{font-family:var(--display);font-size:1.05rem;font-weight:500;letter-spacing:-.005em}
+.live-head h2 em{font-style:normal;color:var(--accent)}
+.live-head p{font-family:var(--mono);font-size:var(--fs-xs);letter-spacing:.06em;color:var(--ink-3)}
+.logos{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));list-style:none;margin:0;padding:0;gap:2px}
+.logos li{min-width:0}
+.logo-more{display:flex;align-items:center;justify-content:center;padding:14px;font-family:var(--mono);font-size:var(--fs-xs);letter-spacing:.06em;color:var(--ink-3);text-align:center}
+@media (max-width:1100px){.logo-more{display:none}}
+.logo{position:relative;display:block;height:96px;padding:12px;border-radius:var(--r-sm);color:var(--ink-2);text-decoration:none;overflow:hidden;transition:background .3s,color .3s}
+.logo:hover{text-decoration:none}
+.logo .wm{position:absolute;left:12px;right:12px;top:50%;transform:translateY(-50%);display:flex;justify-content:center;align-items:center;text-align:center;font-size:1.05rem;line-height:1.15;transition:top .35s cubic-bezier(.2,.7,.2,1),transform .35s cubic-bezier(.2,.7,.2,1),font-size .35s,color .3s}
+.logo .wm img{height:calc(var(--h,30px) * .8);width:auto;max-width:100%;object-fit:contain;filter:brightness(0) invert(1);opacity:.55;transition:height .35s cubic-bezier(.2,.7,.2,1),opacity .3s}
+.logo:hover .wm img,.logo:focus-visible .wm img{height:calc(var(--h,30px) * .5);opacity:1}
+.logo:hover .wm,.logo:focus-visible .wm{justify-content:flex-start}
+.logo .ds{position:absolute;left:12px;right:12px;bottom:10px;font-size:.74rem;line-height:1.35;color:var(--ink-2);opacity:0;transform:translateY(10px);transition:opacity .3s,transform .35s cubic-bezier(.2,.7,.2,1)}
+.logo .go{position:absolute;top:12px;right:12px;width:16px;height:16px;color:var(--accent);opacity:0;transform:translate(-4px,4px);transition:opacity .3s,transform .3s}
+.logo:hover,.logo:focus-visible{background:var(--glass-hi);color:var(--ink);outline:none}
+.logo:hover .wm,.logo:focus-visible .wm{top:12px;transform:none;text-align:left;font-size:.92rem;color:var(--ink);padding-right:20px}
+.logo:hover .ds,.logo:focus-visible .ds,.logo:hover .go,.logo:focus-visible .go{opacity:1;transform:none}
+@media (max-width:1100px){.logos{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:560px){.logos{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.hint-t{display:none}
+@media (hover:none){
+  .hint-h{display:none}.hint-t{display:inline}
+  .logo{height:auto;min-height:88px;display:flex;flex-direction:column;gap:8px}
+  .logo .wm,.logo .ds,.logo .go{position:static;transform:none;opacity:1;text-align:left}
+  .logo .wm{color:var(--ink);font-size:.95rem;padding-right:0;justify-content:flex-start;min-height:30px}
+  .logo .wm img{height:calc(var(--h,30px) * .6);opacity:.9}
+  .logo .go{position:absolute;top:12px;right:12px}
+}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 
@@ -513,6 +546,7 @@ dialog.sheet[open]{animation:sheetIn .38s cubic-bezier(.2,.7,.2,1)}
       </ul>
     </div>
   </section>
+
 
   <!-- ============ WORK ============ -->
   <section class="block" id="work" aria-labelledby="work-title">
@@ -812,6 +846,38 @@ dialog.sheet[open]{animation:sheetIn .38s cubic-bezier(.2,.7,.2,1)}
           <li><svg aria-hidden="true"><use href="#i-lang"/></svg>English: C1 (Advanced)</li>
         </ul>
       </div>
+      <div class="live" id="live" aria-labelledby="live-title">
+      <div class="live-head">
+        <h2 id="live-title">Some products I helped design — <em>still live and thriving</em></h2>
+        <p><span class="hint-t">Tap a logo to open the site</span></p>
+      </div>
+      <ul class="logos" id="logos"></ul>
+    </div>
+  <script>
+  (function(){
+    var arrow='<svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>';
+    var items=[
+      ["WebBeds","https://book.webbeds.com/","One of the lead designers of the main client booking platform","webbeds.svg",22],
+      ["Wildix","https://www.wildix.com/","Core chat-based internal system and its sub-products","wildix.svg",28],
+      ["MGNY Consulting","https://mgnyconsulting.com/","Client dashboard for web and mobile","mgny.svg",42],
+      ["ABC Gruppen","https://www.abcgruppen.se/","Product configurator design","abc.svg",38],
+      ["Bookmap","https://bookmap.com/en","Design of key website sections","bookmap.svg",16],
+      ["Arkadiko","https://www.arkadiko.tech/","Design, project management and delivery","arkadiko.svg",38],
+      ["Adisa","https://adisa.com.ua/ua/","Design, project management and delivery","adisa.svg",36],
+      ["Konverge Technologies","https://konvergetechnologies.com/","Main company website design","konverge.png",42],
+      ["Keysight · Spirent","https://www.keysight.com/us/en/cmp/2026/spirent.html","Interfaces for test engineers","keysight.svg",50],
+      ["Christie Lites","https://www.christielites.com/","iOS mobile app design","christie.svg",40],
+      ["Miss Hall's School","https://www.misshalls.org/","Design review and website renovation","misshalls.svg",38],
+      ["Il Molino","https://ilmolino.ua/","Mobile app for iOS and Android","ilmolino.svg",32]
+    ];
+    var ul=document.getElementById('logos');if(!ul)return;
+    ul.innerHTML=items.map(function(it){
+      var mark=it[3]?'<img src="logos/'+it[3]+'" alt="'+it[0]+'" style="--h:'+it[4]+'px" loading="lazy">':'<span style="'+it[5]+'">'+it[0]+'</span>';
+      return '<li><a class="logo" href="'+it[1]+'" target="_blank" rel="noopener" aria-label="'+it[0]+' — '+it[2]+' (opens in a new tab)">'+arrow+
+        '<span class="wm">'+mark+'</span><span class="ds">'+it[2]+'</span></a></li>';
+    }).join('')+'<li class="logo-more" aria-hidden="true"><span>+40 more products</span></li>';
+  })();
+  </script>
       <div class="life" aria-labelledby="life-title">
         <div class="life-head">
           <p class="eyebrow">Off screen</p>
