@@ -1,5 +1,51 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Iryna Yung Portfolio</title>
+<script>
+/* Analytics — Google Analytics 4 + Microsoft Clarity.
+   1) Put your two IDs below (GA4: "G-…", Clarity: project ID). Until then nothing loads.
+   2) To stop counting your own visits, open the site once as …/Portfolio/?notrack (undo: ?track). */
+(function(){
+  var GA_ID='G-XXXXXXXXXX', CLARITY_ID='XXXXXXXXXX';
+  var off=false;
+  try{
+    if(/[?&]notrack\b/.test(location.search)) localStorage.setItem('iy-notrack','1');
+    if(/[?&]track\b/.test(location.search)) localStorage.removeItem('iy-notrack');
+    off=localStorage.getItem('iy-notrack')==='1';
+  }catch(e){}
+  var useGA=!off&&GA_ID.indexOf('XXXX')<0, useClarity=!off&&CLARITY_ID.indexOf('XXXX')<0;
+  if(useGA){
+    window.dataLayer=window.dataLayer||[];
+    window.gtag=function(){dataLayer.push(arguments);};
+    gtag('js',new Date()); gtag('config',GA_ID);
+    var g=document.createElement('script'); g.async=true; g.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID; document.head.appendChild(g);
+  }
+  if(useClarity){
+    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script",CLARITY_ID);
+  }
+  /* one call sends an event to both tools */
+  window.iyTrack=function(name,params){
+    try{
+      if(useGA) gtag('event',name,params||{});
+      if(useClarity){ clarity('event',name); if(params&&params.project) clarity('set','project',params.project); }
+    }catch(e){}
+  };
+  /* key clicks: CV, email, LinkedIn, product logos, navigation */
+  document.addEventListener('click',function(e){
+    var el=e.target&&e.target.closest&&e.target.closest('a,button'); if(!el) return;
+    var box=el.parentElement&&el.parentElement.closest('section[id],dialog[id],header,footer');
+    var where=box?(box.id||box.tagName.toLowerCase()):'page';
+    var href=el.getAttribute('href')||'';
+    if(el.classList.contains('js-cv')) iyTrack('cv_download',{location:where});
+    else if(el.id==='cv-view') iyTrack('cv_view',{location:where});
+    else if(el.id==='cv-open') iyTrack('cv_open_pdf',{location:where});
+    else if(el.id==='copy-email') iyTrack('email_copy',{location:where});
+    else if(href.indexOf('mailto:')===0) iyTrack('email_click',{location:where});
+    else if(href.indexOf('linkedin.com')>-1) iyTrack('linkedin_click',{location:where});
+    else if(el.classList.contains('logo')) iyTrack('product_logo_click',{product:(el.getAttribute('aria-label')||'').split(' — ')[0]});
+    else if(href.charAt(0)==='#'&&el.closest('header.nav')) iyTrack('nav_click',{target:href.slice(1)||'top'});
+  },true);
+})();
+</script>
 <script>/* hide blocks before first paint so they can fade in; undo if the main script never runs */
 (function(){try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&'IntersectionObserver' in window){var d=document.documentElement;d.classList.add('reveal-on');setTimeout(function(){if(!window.__reveal)d.classList.remove('reveal-on')},2500)}}catch(e){}})();</script>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -1091,6 +1137,7 @@ const sheet = document.getElementById('sheet'), body = document.getElementById('
 let current = null, opener = null;
 function show(id, fromHash){
   if(!P[id]) return;
+  if(window.iyTrack && id!==current) iyTrack('case_study_open',{project:id, via: fromHash?'direct_link':'site'});
   current = id; body.innerHTML = P[id].html; crumb.textContent = P[id].crumb + ' · ' + (order.indexOf(id)+1) + ' / ' + order.length;
   body.scrollTop = 0; sheet.scrollTop = 0;
   const proc=body.querySelector('.process'); if(proc&&!matchMedia('(prefers-reduced-motion: reduce)').matches) requestAnimationFrame(()=>proc.classList.add('glow'));
