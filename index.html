@@ -191,6 +191,26 @@ section.block{padding-block:var(--s9) 0}
 .card.compact .card-body h4{font-size:1.25rem}
 .card.compact .card-media{aspect-ratio:16/9}
 .card.compact .card-media img{object-position:center}
+/* compact row of four (internal platforms) */
+.cards.four{grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s4)}
+@media (max-width:1000px){.cards.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){
+  .cards.four{grid-template-columns:1fr;gap:var(--s3)}
+  .cards.four .card{grid-template-columns:120px minmax(0,1fr);grid-template-rows:auto}
+  .cards.four .card.compact .card-media{aspect-ratio:auto;width:120px;min-width:0;height:100%;min-height:150px}
+  .cards.four .card-body{padding:var(--s3) var(--s4)}
+  .cards.four .card-tags{display:none}
+  .cards.four .purpose{-webkit-line-clamp:3}
+}
+.cards.four .card{border-radius:var(--r-md)}
+.cards.four .card-media{aspect-ratio:16/10}
+.cards.four .card-body{padding:var(--s4);gap:var(--s2);display:flex;flex-direction:column}
+.cards.four .card-foot{margin-top:auto!important;padding-top:6px}
+.cards.four .card-body h4{font-size:1.08rem;line-height:1.2}
+.cards.four .tag{font-size:.66rem;padding:3px 7px}
+.cards.four .purpose{font-size:var(--fs-xs);line-height:1.5;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden}
+.cards.four .card-foot{margin-top:4px}
+.cards.four .btn-sm{min-height:36px;padding:0 14px}
 
 /* ---------- Domains strip: 10 industries, static list ---------- */
 .domains{margin-bottom:var(--s8)}
@@ -655,7 +675,7 @@ dialog.sheet[open]{animation:sheetIn .38s cubic-bezier(.2,.7,.2,1)}
 
       <div class="group">
         <div class="group-head"><h3>Internal platforms &amp; tools</h3><p>Learning, operations and recognition products</p></div>
-        <div class="cards two">
+        <div class="cards four">
           <article class="card compact" style="--tint:#57c7c0">
             <div class="card-media thumb"><img src="img/thumb-skillguide.webp" alt="Skill Guide learning platform screens on a teal background" loading="lazy"></div>
             <div class="card-body">
