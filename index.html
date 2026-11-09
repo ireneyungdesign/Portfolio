@@ -192,6 +192,19 @@ section.block{padding-block:var(--s9) 0}
 .card.compact .card-media{aspect-ratio:16/9}
 .card.compact .card-media img{object-position:center}
 
+/* ---------- Domains strip: 10 industries, static list ---------- */
+.domains{margin-bottom:var(--s8)}
+.domains-head{display:flex;align-items:baseline;justify-content:space-between;gap:4px var(--s5);flex-wrap:wrap;padding:0 0 var(--s3)}
+.domains-head h3{font-size:1.05rem;font-weight:500;letter-spacing:-.005em}
+.domains-head h3 em{font-style:normal;color:var(--accent)}
+.domain-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:2px var(--s4);list-style:none;margin:0;padding:0}
+.domain{display:grid;gap:4px;align-content:start;min-height:96px;padding:14px 0;color:var(--ink)}
+.domain .n{font-family:var(--mono);font-size:var(--fs-xs);letter-spacing:.08em;color:var(--accent)}
+.domain b{font-family:var(--display);font-weight:500;font-size:1.08rem;line-height:1.2}
+.domain span.d{font-size:.8rem;line-height:1.4;color:var(--ink-3)}
+@media (max-width:1000px){.domain-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:640px){.domain-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
 /* ---------- CV viewer ---------- */
 dialog.cv-sheet{width:min(860px,100%)}
 .cv-pages{display:grid;gap:var(--s5);padding:var(--s6) max(20px,env(safe-area-inset-right,0px)) calc(var(--s8) + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px));justify-items:center}
@@ -429,8 +442,8 @@ dialog.sheet[open]{animation:sheetIn .38s cubic-bezier(.2,.7,.2,1)}
 
 /* ===== Gentle reveal of blocks on scroll ===== */
 @media (prefers-reduced-motion:no-preference){
-  html.reveal-on :is(.section-head,.strength,.group-head,.card,.about-grid>div,.skill-col,.flow,.quotes,.src-line,.cv-panel,.contact,.life,.foot):not(.shown){opacity:0;translate:0 22px}
-  html.reveal-on :is(.section-head,.strength,.group-head,.card,.about-grid>div,.skill-col,.flow,.quotes,.src-line,.cv-panel,.contact,.life,.foot){transition:opacity 1s cubic-bezier(.2,.7,.2,1) var(--rd,0s),translate 1.1s cubic-bezier(.2,.7,.2,1) var(--rd,0s),border-color .25s}
+  html.reveal-on :is(.section-head,.domains,.strength,.group-head,.card,.about-grid>div,.skill-col,.flow,.quotes,.src-line,.cv-panel,.contact,.life,.foot):not(.shown){opacity:0;translate:0 22px}
+  html.reveal-on :is(.section-head,.domains,.strength,.group-head,.card,.about-grid>div,.skill-col,.flow,.quotes,.src-line,.cv-panel,.contact,.life,.foot){transition:opacity 1s cubic-bezier(.2,.7,.2,1) var(--rd,0s),translate 1.1s cubic-bezier(.2,.7,.2,1) var(--rd,0s),border-color .25s}
 }
 /* load motion (hero) */
 @media (prefers-reduced-motion:no-preference){
@@ -555,6 +568,24 @@ dialog.sheet[open]{animation:sheetIn .38s cubic-bezier(.2,.7,.2,1)}
       <div class="section-head">
         <div><p class="eyebrow">Projects &amp; case studies</p><h2 id="work-title">Products I designed</h2></div>
         <p>Grouped by kind of work. Every card shows the purpose and my role; open a project for decisions, process and screens.</p>
+      </div>
+
+      <div class="domains" aria-labelledby="domains-title">
+        <div class="domains-head">
+          <h3 id="domains-title">10 domains I’ve designed for — <em>B2B, B2C and internal</em></h3>
+        </div>
+        <ul class="domain-grid">
+          <li><div class="domain"><span class="n">01</span><b>Travel &amp; booking</b><span class="d">B2B booking platform · 100,000+ users</span></div></li>
+          <li><div class="domain"><span class="n">02</span><b>Telecom &amp; networks</b><span class="d">Monitoring dashboards and maps</span></div></li>
+          <li><div class="domain"><span class="n">03</span><b>Logistics</b><span class="d">iOS app for routes and check-ins</span></div></li>
+          <li><div class="domain"><span class="n">04</span><b>Aviation</b><span class="d">Cabin crew tablet platform</span></div></li>
+          <li><div class="domain"><span class="n">05</span><b>EdTech</b><span class="d">Learning paths and quizzes</span></div></li>
+          <li><div class="domain"><span class="n">06</span><b>HR &amp; engagement</b><span class="d">Recognition and rewards system</span></div></li>
+          <li><div class="domain"><span class="n">07</span><b>Communications</b><span class="d">B2B chat and calls · Wildix</span></div></li>
+          <li><div class="domain"><span class="n">08</span><b>Sports &amp; CRM</b><span class="d">Club management · Instasport</span></div></li>
+          <li><div class="domain"><span class="n">09</span><b>Social networks</b><span class="d">Startup · web, iOS and Android</span></div></li>
+          <li><div class="domain"><span class="n">10</span><b>Startups &amp; branding</b><span class="d">Tools, landing pages, logos · Halo Lab</span></div></li>
+        </ul>
       </div>
 
       <div class="group">
@@ -1099,7 +1130,7 @@ cvSheet.addEventListener('close',()=>{ if(cvOpener){ cvOpener.focus(); cvOpener=
   const root=document.documentElement; window.__reveal=true;
   if(!root.classList.contains('reveal-on')) return;
   let first=true; /* blocks visible on load wait for the hero text to settle */
-  const els=[...document.querySelectorAll('.section-head,.strength,.group-head,.card,.about-grid>div,.skill-col,.flow,.quotes,.src-line,.cv-panel,.contact,.life,.foot')];
+  const els=[...document.querySelectorAll('.section-head,.domains,.strength,.group-head,.card,.about-grid>div,.skill-col,.flow,.quotes,.src-line,.cv-panel,.contact,.life,.foot')];
   const ro=new IntersectionObserver(es=>{
     const vis=es.filter(e=>e.isIntersecting).sort((a,b)=>(a.boundingClientRect.top-b.boundingClientRect.top)||(a.boundingClientRect.left-b.boundingClientRect.left));
     const base=first&&vis.length?0.55:0; if(vis.length) first=false;
