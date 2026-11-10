@@ -560,6 +560,91 @@ dialog.sheet[open]{animation:sheetIn .38s cubic-bezier(.2,.7,.2,1)}
   .logo .go{position:absolute;top:12px;right:12px}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+/* ---------- Case study 1 layout: summary, sticky section nav, phases, AI table ---------- */
+
+.cs-block{display:grid;gap:var(--s5);scroll-margin-top:var(--stick-all,210px);min-width:0}
+
+.tldr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s5);padding:var(--s5);border-radius:var(--r-lg);background:var(--glass);border:1px solid var(--line)}
+.tldr > div{min-width:0;display:grid;gap:6px;align-content:start}
+.tldr .eyebrow{color:var(--accent)}
+.tldr p:not(.eyebrow){font-size:var(--fs-sm);color:var(--ink);line-height:1.5}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s3);list-style:none;margin:0;padding:0}
+.kpis li{display:grid;gap:6px;padding:var(--s4);border-radius:var(--r-md);border:1px solid var(--line);align-content:start}
+.kpis .k{font-family:var(--display);font-size:1.7rem;line-height:1;color:var(--accent);font-variant-numeric:tabular-nums}
+.kpis li > span:last-child{font-size:var(--fs-xs);color:var(--ink-2);line-height:1.4}
+@media (max-width:760px){.tldr{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.sheet-body{--gut:28px}
+@media (max-width:600px){.sheet-body{--gut:16px}}
+.toc{position:sticky;top:var(--stick-top,72px);z-index:1;align-self:start;display:flex;align-items:center;gap:10px 18px;flex-wrap:wrap;
+  margin-inline:calc(var(--gut) * -1);padding:12px var(--gut);background:rgba(23,23,23,.94);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);
+  border-block:1px solid var(--line-strong);box-shadow:0 12px 24px -16px rgba(0,0,0,.7)}
+.toc-label{display:inline-flex;align-items:center;gap:8px;font:600 var(--fs-xs)/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
+.toc-label svg{width:16px;height:16px;color:var(--accent)}
+.toc-label em{font-style:normal;color:var(--ink-3);font-weight:400}
+.toc-links{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;min-width:0;flex:1 1 auto}
+.toc-links::-webkit-scrollbar{display:none}
+.toc a{flex:none;padding:9px 14px;border-radius:8px;background:var(--ground-3);border:1px solid var(--line-strong);color:var(--ink-2);text-decoration:none;font-size:var(--fs-xs);font-weight:500;transition:background .2s,color .2s,border-color .2s}
+.toc a:hover{color:var(--ink);border-color:var(--ink-3)}
+.toc a[aria-current="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+@media (max-width:600px){.toc-label em{display:none}}
+
+.cs-phases{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s3);list-style:none;margin:0;padding:0}
+.cs-phase{display:flex;flex-direction:column;gap:10px;padding:var(--s4);border-radius:var(--r-md);background:var(--ground-2);border:1px solid var(--line);min-width:0}
+.cs-phase .num{font:500 var(--fs-xs)/1 var(--mono);color:var(--accent);letter-spacing:.08em;text-transform:uppercase}
+.cs-phase h4{font:600 1.02rem/1.3 var(--body);letter-spacing:0}
+.cs-phase ul{margin:0;padding-left:16px;font-size:var(--fs-xs);color:var(--ink-2);display:grid;gap:4px;line-height:1.5}
+.cs-phase .ai{margin-top:auto}
+.ai,.mine{display:grid;gap:4px;padding-top:10px;border-top:1px solid var(--line);font-size:var(--fs-xs);line-height:1.45}
+.ai p{color:var(--ink-2)}
+.ai-tags{display:flex;flex-wrap:wrap;gap:4px}
+.ai-tag{font:500 .68rem/1.2 var(--mono);letter-spacing:.04em;color:var(--accent);background:rgba(62,207,142,.1);padding:4px 8px;border-radius:6px}
+.mine span{font:600 .66rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.mine p{color:var(--ink)}
+@media (max-width:960px){.cs-phases{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.cs-phases{grid-template-columns:1fr}}
+
+.lead{color:var(--ink-2);font-size:var(--fs-sm);max-width:62ch;margin-top:10px}
+.lenses{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s3);list-style:none;margin:0;padding:0}
+.lenses li{display:grid;gap:6px;padding:var(--s4);border-radius:var(--r-md);border:1px solid var(--line);align-content:start;min-width:0}
+.lenses b{font:600 .95rem/1.2 var(--body)}
+.lenses p{font-size:var(--fs-xs);color:var(--ink-2);line-height:1.45}
+.lenses .res{font:500 var(--fs-xs)/1.2 var(--mono);margin-top:4px}
+@media (max-width:860px){.lenses{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.result-row{display:grid;grid-template-columns:auto minmax(0,1fr);gap:var(--s4);align-items:baseline;padding:var(--s4) var(--s5);border-radius:var(--r-md);background:var(--glass);border:1px solid var(--line)}
+.result-row .eyebrow{color:var(--accent)}
+.result-row p{font-size:var(--fs-sm)}
+@media (max-width:560px){.result-row{grid-template-columns:1fr;gap:6px}}
+
+.track{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden}
+.track li{display:flex;flex-direction:column;gap:8px;padding:var(--s4);min-width:0}
+.track li+li{border-left:1px solid var(--line)}
+.track .num{font:500 var(--fs-xs)/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.track p{font-size:var(--fs-xs);color:var(--ink-2);line-height:1.5}
+.ai-chip{margin-top:auto;align-self:flex-start;font:500 .68rem/1.3 var(--mono);color:var(--accent);padding:4px 8px;border-radius:6px;background:rgba(62,207,142,.1)}
+@media (max-width:760px){.track{grid-template-columns:1fr 1fr}.track li:nth-child(3){border-left:0}.track li:nth-child(n+3){border-top:1px solid var(--line)}}
+@media (max-width:460px){.track{grid-template-columns:1fr}.track li+li{border-left:0;border-top:1px solid var(--line)}}
+
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-md)}
+.ai-tbl{width:100%;min-width:640px;border-collapse:collapse;font-size:var(--fs-xs)}
+.ai-tbl th{text-align:left;font:500 .7rem/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);padding:12px 14px;border-bottom:1px solid var(--line);background:var(--ground-2)}
+.ai-tbl td{padding:12px 14px;border-bottom:1px solid var(--line);color:var(--ink-2);vertical-align:top;line-height:1.45}
+.ai-tbl tr:last-child td{border-bottom:0}
+.ai-tbl td:first-child,.ai-tbl td:last-child{color:var(--ink)}
+.tool{display:inline-block;margin:0 4px 4px 0;padding:3px 8px;border-radius:6px;font:500 .68rem/1.2 var(--mono);color:var(--accent);background:rgba(62,207,142,.1)}
+.rules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s3);list-style:none;margin:0;padding:0}
+.rules li{display:grid;gap:4px;padding:var(--s4);border-radius:var(--r-md);background:var(--glass);border:1px solid var(--line);align-content:start}
+.rules b{font-size:var(--fs-sm);font-weight:600}
+.rules p{font-size:var(--fs-xs);color:var(--ink-2);line-height:1.45}
+@media (max-width:760px){.rules{grid-template-columns:1fr}}
+
+.outcome-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:var(--s4)}
+.learn{padding:var(--s5);border-radius:var(--r-lg);border:1px solid var(--line)}
+.learn p:not(.eyebrow){font-size:var(--fs-sm);color:var(--ink-2);margin-top:6px}
+@media (max-width:760px){.outcome-grid{grid-template-columns:1fr}}
+.next-case{display:flex;align-items:center;justify-content:space-between;gap:var(--s4);flex-wrap:wrap;padding:var(--s5);border-radius:var(--r-lg);border:1px solid var(--line-strong);background:var(--ground-2)}
+.nc-title{font-family:var(--display);font-size:var(--fs-lg);margin-top:6px}
+
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -680,7 +765,7 @@ dialog.sheet[open]{animation:sheetIn .38s cubic-bezier(.2,.7,.2,1)}
                 <div><dt>Role</dt><dd>Product Designer (UX/UI), with a Design Lead and another designer</dd></div>
                 <div><dt>Scale</dt><dd>Legacy product, 100,000+ users</dd></div>
               </dl>
-              <div class="outcome"><span class="eyebrow">Outcome</span><p>Incremental redesign of a complex legacy product; tracked more users completing the search flow and conversion improvements across redesigned flows.</p></div>
+              <div class="outcome"><span class="eyebrow">Outcome</span><p>+37% users completing search, −99% misclicks on the search bar, +12% conversion across redesigned flows.</p></div>
               <div class="card-foot"><button class="btn btn-primary btn-sm" type="button" data-open="booking">Open case study<svg aria-hidden="true"><use href="#i-arrow"/></svg></button><span class="more">2 deep dives · 7 screens</span></div>
             </div>
           </article>
@@ -1135,10 +1220,131 @@ web:{crumb:'Earlier work', html: head('Earlier work','Web &amp; startups','')+sh
 const order = ['booking','network','logistics','skillguide','trainbrain','cabincrew','recognition','icons','mobile','web'];
 const sheet = document.getElementById('sheet'), body = document.getElementById('sheet-body'), crumb = document.getElementById('sheet-crumb');
 let current = null, opener = null;
+/* case study 1: booking platform, redesigned layout */
+P.booking.html = head('Client case study · DataArt','B2B Booking Platform','Web · Responsive · Legacy redesign') +
+
+`<div class="cs-block">
+  <div class="tldr">
+    <div><p class="eyebrow">Problem</p><p>Agencies were moving to competitors. The legacy UI hid key features, and core booking flows took too many steps.</p></div>
+    <div><p class="eyebrow">My role</p><p>Product Designer in a team of six. Research, search and order flows, UI refresh within the existing brand, developer handoff.</p></div>
+    <div><p class="eyebrow">Result</p><p>An incremental redesign shipped without disrupting 100,000+ active users, with 37% more agents completing search.</p></div>
+  </div>
+  <ul class="kpis">
+    <li><span class="k">100,000+</span><span>users kept through the migration</span></li>
+    <li><span class="k">+37%</span><span>users completing the search flow</span></li>
+    <li><span class="k">−99%</span><span>misclicks on the search bar (Hotjar)</span></li>
+    <li><span class="k">+12%</span><span>conversion across redesigned flows, still growing</span></li>
+  </ul>
+</div>` +
+
+`<nav class="toc" aria-label="Case study sections">
+    <span class="toc-label"><svg aria-hidden="true" viewBox="0 0 16 16"><path d="M2 4h12M2 8h12M2 12h8" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>On this page <em>· 6 min</em></span>
+    <div class="toc-links"><a href="#cs-context" data-jump>Context</a><a href="#cs-process" data-jump>Process</a><a href="#cs-search" data-jump>Search bar</a><a href="#cs-order" data-jump>Order card</a><a href="#cs-ai" data-jump>AI in the workflow</a><a href="#cs-outcome" data-jump>Outcome</a><a href="#cs-screens" data-jump>Screens</a></div>
+  </nav>` +
+
+`<div class="cs-block" id="cs-context">
+  <div class="sheet-intro">
+    <div class="overview"><h3 class="h-sec">Context</h3><p>B2B travel integration platform for agencies and full-cycle booking providers: hotels, transfers, visas, payment. A large legacy product with an established user base, an outdated UI and growing competition.</p><p>Primary users are travel agents who search and book for their clients many times a day, so every extra step costs them time.</p><p class="note-src">StarTravel is a placeholder name.</p></div>
+    ${facts([['Client','EU-based international platform'],['Team','Design Lead, 2 designers, BA, developers'],['Constraints','100,000+ users, legacy codebase, brand kept'],['Data','Surveys · Backend requests · Hotjar'],['Tools','Figma · FigJam · Figma Make · ChatGPT · Claude']])}
+  </div>
+  ${shot('booking-12','Before and after. The search moved to the top, legacy clutter was removed, and the form now follows the order agents fill it in.','Side-by-side of the legacy StarTravel page and the redesigned search page')}
+</div>` +
+
+`<div class="cs-block" id="cs-process">
+  <h3 class="h-sec">How I worked</h3>
+  <ol class="cs-phases">
+    <li class="cs-phase"><span class="num">01 · Discover</span><h4>Find where agents get stuck</h4><ul><li>Reviewed Hotjar recordings and heatmaps of core flows.</li><li>Collected survey answers, stakeholder feedback and backend requests.</li></ul>
+      <div class="ai"><span class="ai-tags"><span class="ai-tag">NotebookLM</span><span class="ai-tag">Claude</span></span><p>Sorted hundreds of survey comments and requests into a few main themes.</p></div>
+      <div class="mine"><span>My call</span><p>Kept only the themes that real user recordings confirmed.</p></div></li>
+    <li class="cs-phase"><span class="num">02 · Define</span><h4>Turn findings into one hypothesis</h4><ul><li>Key issues: hidden features, redundant functions, long workflows.</li><li>Hypothesis: simpler core flows and less clutter will raise completion and keep agents from leaving.</li></ul>
+      <div class="ai"><span class="ai-tags"><span class="ai-tag">Claude</span><span class="ai-tag">ChatGPT</span></span><p>Stress-tested the hypothesis and listed edge cases and states we could miss.</p></div>
+      <div class="mine"><span>My call</span><p>Prioritised with the BA and developers by usage frequency and technical cost.</p></div></li>
+    <li class="cs-phase"><span class="num">03 · Design</span><h4>Redesign the most used flows first</h4><ul><li>Competitor review for feature gaps and proven patterns.</li><li>New flows, then a UI refresh that kept the existing brand.</li></ul>
+      <div class="ai"><span class="ai-tags"><span class="ai-tag">Figma Make</span></span><p>Turned new flows into clickable prototypes to test ideas early.</p></div>
+      <div class="mine"><span>My call</span><p>Picked patterns that fit B2B agents, not leisure travellers, and wrote the final copy.</p></div></li>
+    <li class="cs-phase"><span class="num">04 · Deliver</span><h4>Ship in small, safe releases</h4><ul><li>Staging tests, stakeholder reviews, gradual rollout.</li><li>Watched Hotjar and customer feedback after each release.</li></ul>
+      <div class="ai"><span class="ai-tags"><span class="ai-tag">Claude</span></span><p>Generated staging test scenarios from the states checklist.</p></div>
+      <div class="mine"><span>My call</span><p>Decided what was ready to ship and what went back for another iteration.</p></div></li>
+  </ol>
+</div>` +
+
+`<div class="cs-block case" id="cs-search">
+  <div><p class="eyebrow">Deep dive 1</p><h3 class="h-sec" style="margin-top:8px">Search bar: the main entry point</h3><p class="lead">Search is the most used feature of the platform, and it was tightly coupled with the legacy architecture. We reviewed it field by field through four lenses.</p></div>
+  <ul class="lenses">
+    <li><b>Labels</b><p>Field names, hints and button texts that agents misread.</p><span class="res">9 labels rewritten</span></li>
+    <li><b>Errors</b><p>Validation that fired late or gave no way forward.</p><span class="res">7 issues fixed</span></li>
+    <li><b>Intuitiveness</b><p>Field order that didn’t match how agents think about a trip.</p><span class="res">Reordered</span></li>
+    <li><b>Steps to goal</b><p>Clicks needed to reach results for a typical request.</p><span class="res">From 7 to 5 steps</span></li>
+  </ul>
+  ${shot('booking-09','Search bar analysis: heatmaps, field-by-field review and competitor comparison.','Portfolio slide with Hotjar heatmaps and annotated search bar analysis')}
+  <div class="result-row"><span class="eyebrow">Result</span><p>Released after staging tests and stakeholder review. 37% more users completed the search flow, and misclicks dropped by 99%. Remaining friction was tracked through Hotjar for the next iteration.</p></div>
+</div>` +
+
+`<div class="cs-block case" id="cs-order">
+  <div><p class="eyebrow">Deep dive 2</p><h3 class="h-sec" style="margin-top:8px">Order card: a new feature from scratch</h3><p class="lead">From requirements to a released MVP, in four stages.</p></div>
+  <ol class="track">
+    <li><span class="num">Scope</span><p>Requirements and user stories, aligned with the BA.</p><span class="ai-chip">AI drafted the first user stories</span></li>
+    <li><span class="num">Flows</span><p>User flows validated with the client and key users, plus a competitor review.</p></li>
+    <li><span class="num">Explore</span><p>Low-fi wireframes, reviewed with stakeholders and developers, scope cut to an MVP.</p><span class="ai-chip">Wireframes and reviews in FigJam</span></li>
+    <li><span class="num">Ship</span><p>Hi-fi screens with all states, responsive layouts, dev walkthrough, internal tests, release and analytics.</p></li>
+  </ol>
+  ${shot('booking-11','Order card: user flow mapping and wireframe exploration.','Portfolio slide showing user flow diagram and wireframes for the order card')}
+</div>` +
+
+`<div class="cs-block" id="cs-ai">
+  <div><p class="eyebrow">AI in the workflow</p><h3 class="h-sec" style="margin-top:8px">Where AI saved time, and where it didn’t decide</h3></div>
+  <div class="tbl-wrap"><table class="ai-tbl">
+    <thead><tr><th>Task</th><th>Tool</th><th>What it gave me</th><th>What stayed mine</th></tr></thead>
+    <tbody>
+      <tr><td>Synthesise survey answers and backend requests</td><td><span class="tool">ChatGPT</span><span class="tool">NotebookLM</span></td><td>Main themes of what users asked for and complained about</td><td>Verified against Hotjar recordings</td></tr>
+      <tr><td>Competitor feature matrix</td><td><span class="tool">ChatGPT</span><span class="tool">FigJam</span></td><td>Gap list across competitors</td><td>Which patterns fit B2B agents</td></tr>
+      <tr><td>Edge cases and states for search</td><td><span class="tool">Claude</span></td><td>States checklist: dates, rooms, guests, no results</td><td>MVP scope with the BA and devs</td></tr>
+      <tr><td>Error messages and microcopy</td><td><span class="tool">ChatGPT</span></td><td>3–5 variants per message</td><td>Final wording in the brand voice</td></tr>
+      <tr><td>Order card prototype</td><td><span class="tool">Figma Make</span></td><td>Clickable prototype in hours, not days</td><td>Flow validated with key users</td></tr>
+    </tbody>
+  </table></div>
+  <ul class="rules">
+    <li><b>Client data stays private.</b><p>Only anonymised or synthetic data went into AI tools, under the client’s NDA.</p></li>
+    <li><b>AI drafts, the team decides.</b><p>Every AI output was a starting point, reviewed with the BA, developers or users.</p></li>
+    <li><b>Real behaviour wins.</b><p>When AI themes and Hotjar data disagreed, the data won.</p></li>
+  </ul>
+</div>` +
+
+`<div class="cs-block" id="cs-outcome">
+  <div class="outcome-grid">
+    <div class="takeaway"><span class="eyebrow">Outcome</span><p>Incremental releases modernised a complex legacy product without losing an established user base.</p></div>
+    <div class="learn"><p class="eyebrow">What I’d do differently</p><p>Set up baseline metrics before the first release. Some early wins were visible in Hotjar but hard to quantify afterwards.</p><p class="eyebrow" style="margin-top:16px">What I took to later projects</p><p>Ship the most used flow first, then let real behaviour pick the next one.</p></div>
+  </div>
+</div>` +
+
+`<div class="cs-block" id="cs-screens">
+  <h3 class="h-sec">Final screens</h3>
+  <div class="shots two">${shot('booking-04','Hotel search results with filters and map view.')}${shot('booking-05','Hotel page and alternative listing layouts.')}${shot('booking-06','Bookings and check-in screens.')}${shot('booking-07','Responsive mobile versions: sign in, search and hotel page.')}</div>
+  <div class="next-case"><div><p class="eyebrow">Next case study</p><p class="nc-title">Network Monitoring System</p></div><button class="btn btn-glass" type="button" data-next>Open<svg aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+</div>`;
+
+let tocIO=null;
+function setupToc(){
+  const top=document.querySelector('#sheet .sheet-top'), toc=body.querySelector('.toc');
+  if(tocIO){ tocIO.disconnect(); tocIO=null; }
+  if(!toc) return;
+  const th=top.offsetHeight; body.style.setProperty('--stick-top', th+'px'); body.style.setProperty('--stick-all', (th+toc.offsetHeight+16)+'px');
+  const links=[...toc.querySelectorAll('a')], secs=links.map(a=>body.querySelector(a.getAttribute('href')));
+  if(!('IntersectionObserver' in window)) return;
+  tocIO=new IntersectionObserver(es=>{ es.forEach(en=>{ if(en.isIntersecting){ links.forEach(l=>l.removeAttribute('aria-current')); const l=links[secs.indexOf(en.target)]; if(l){ l.setAttribute('aria-current','true'); l.scrollIntoView({block:'nearest',inline:'nearest'}); } } }); },
+    {root:sheet, rootMargin:'-'+(th+toc.offsetHeight+20)+'px 0px -55% 0px'});
+  secs.forEach(s=>s&&tocIO.observe(s));
+}
+window.addEventListener('resize',()=>{ if(current==='booking') setupToc(); });
+body.addEventListener('click',e=>{
+  const j=e.target.closest('[data-jump]'); if(j){ e.preventDefault(); const t=body.querySelector(j.getAttribute('href')); if(t) t.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'}); return; }
+  if(e.target.closest('[data-next]')) document.getElementById('sheet-next').click();
+});
+
 function show(id, fromHash){
   if(!P[id]) return;
   if(window.iyTrack && id!==current) iyTrack('case_study_open',{project:id, via: fromHash?'direct_link':'site'});
-  current = id; body.innerHTML = P[id].html; crumb.textContent = P[id].crumb + ' · ' + (order.indexOf(id)+1) + ' / ' + order.length;
+  current = id; body.innerHTML = P[id].html; requestAnimationFrame(setupToc); crumb.textContent = P[id].crumb + ' · ' + (order.indexOf(id)+1) + ' / ' + order.length;
   body.scrollTop = 0; sheet.scrollTop = 0;
   const proc=body.querySelector('.process'); if(proc&&!matchMedia('(prefers-reduced-motion: reduce)').matches) requestAnimationFrame(()=>proc.classList.add('glow'));
   if(!sheet.open){ if(typeof sheet.showModal==='function') sheet.showModal(); else sheet.setAttribute('open',''); }
